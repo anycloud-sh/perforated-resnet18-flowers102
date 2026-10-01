@@ -128,7 +128,7 @@
   "vm_duration_seconds": 3476,
   "compute_cost_usd": 1.25,
   "log_sha256": "1f619aea0317a8bce8557766d9349adaecad26246e0541e9dcec91d467793a55",
-  "repository_public": false,
+  "repository_public": true,
   "package_linked": false,
   "anonymous_pull": false
 }

@@ -12,6 +12,10 @@ proprietary checkpoint training process.
 
 ## Run
 
+**Distribution status:** the source and Lambda validation are public. GitHub
+still lists the GHCR package as private, so anonymous pulls of the command
+below are pending its package visibility change and release promotion.
+
 ```bash
 anycloud job ghcr.io/anycloud-sh/perforated-resnet18-flowers102@sha256:b674943c8ea20e190fd66f77d054eccbb25131f20ad47a16e1d1c0bb6d9a38d6 \
   --credentials lambda --gpu-type a10 --gpus all --disk-size 100
@@ -41,8 +45,9 @@ augmentations, optimizer, learning rate, scheduler, and seed.
   checkpointing because it is a finite comparison without resumable model
   state in this artifact.
 
-The published image digest is the exact image used for the Lambda evidence.
-Its release tag `v0.1.0` is added to that same registry manifest after validation.
+The candidate digest is the exact image used for the Lambda evidence. The
+release tag `v0.1.0` will be added to that same manifest after the public pull
+check succeeds.
 
 ## Change the run
 
