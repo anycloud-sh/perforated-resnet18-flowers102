@@ -33,7 +33,9 @@ augmentations, optimizer, learning rate, scheduler, and seed.
   test accuracy and the Perforated checkpoint reached **86.18%** (+3.68
   percentage points). This is one seeded comparison on the upstream test split,
   not a general performance guarantee. See the [validation record](validation/lambda-a10.json)
-  and complete [Job log](validation/lambda-a10.log) for every epoch.
+  and complete [Job log](validation/lambda-a10.log) for every epoch. A
+  [second Lambda run](validation/public-pull-repeat.md) from the public digest
+  completed the same 50-epoch table.
 - **Runtime and downloads:** the container ran for 52 minutes 55 seconds on
   Lambda A10; VM time including setup was about 58 minutes ($1.25). The Job
   downloaded the 345 MB Flowers archive, approximately 45 MB of standard
