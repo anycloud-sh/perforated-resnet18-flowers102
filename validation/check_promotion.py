@@ -22,6 +22,8 @@ assert result["gpu"] == "NVIDIA A10"
 assert result["repository_public"] is True
 assert result["package_linked"] is True
 assert result["anonymous_pull"] is True
+assert result["anonymous_manifest_http_status"] == 200
+assert result["anonymous_manifest_digest"] == image_digest
 assert result["cuda_synchronized"] is True
 assert result["cuda_allocated_bytes"] > 0
 assert math.isfinite(result["cuda_matmul_checksum"])

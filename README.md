@@ -12,10 +12,6 @@ proprietary checkpoint training process.
 
 ## Run
 
-**Distribution status:** the source and Lambda validation are public. GitHub
-still lists the GHCR package as private, so anonymous pulls of the command
-below are pending its package visibility change and release promotion.
-
 ```bash
 anycloud job ghcr.io/anycloud-sh/perforated-resnet18-flowers102@sha256:b674943c8ea20e190fd66f77d054eccbb25131f20ad47a16e1d1c0bb6d9a38d6 \
   --credentials lambda --gpu-type a10 --gpus all --disk-size 100
@@ -46,8 +42,25 @@ augmentations, optimizer, learning rate, scheduler, and seed.
   state in this artifact.
 
 The candidate digest is the exact image used for the Lambda evidence. The
-release tag `v0.1.0` will be added to that same manifest after the public pull
-check succeeds.
+release tag `v0.1.0` points to that same manifest. GitHub Actions builds the
+candidate from `main` and promotes a digest only after checking the committed
+50-epoch validation record.
+
+## Build and release
+
+[Build candidate image](.github/workflows/build.yml) runs on source pushes to
+`main` or by manual dispatch. It builds `linux/amd64` from the pinned
+[`Dockerfile`](Dockerfile) and publishes
+`ghcr.io/anycloud-sh/perforated-resnet18-flowers102:candidate-<commit>` using
+the repository's `GITHUB_TOKEN`. The hosted build for this release published
+`candidate-24c756da650de6f5105a378a10b6ed9e6f4003de`.
+
+[Promote validated digest](.github/workflows/promote.yml) accepts the candidate
+digest after `validation/check_promotion.py` verifies the committed Lambda
+result. It adds `v0.1.0` to the existing manifest and checks that the tag
+resolves to the validated digest. The [promotion run](https://github.com/anycloud-sh/perforated-resnet18-flowers102/actions/runs/36921919359)
+passed; anonymous registry requests for the digest and `v0.1.0` both resolve
+to `sha256:b674943c8ea20e190fd66f77d054eccbb25131f20ad47a16e1d1c0bb6d9a38d6`.
 
 ## Change the run
 
