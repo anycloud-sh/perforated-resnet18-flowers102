@@ -1,0 +1,13 @@
+Perforated AI Flowers-102 comparison
+
+The file upstream/flowers_comparison.py is copied from
+https://github.com/PerforatedAI/PerforatedAI at commit
+9d317e629428d73d92b88dc501f0dce3b1017c86.
+Copyright (c) 2025 Perforated AI. Licensed under Apache License 2.0.
+The original license is preserved in LICENSE.upstream.
+
+The container downloads the creator-owned checkpoint from
+https://huggingface.co/perforated-ai/resnet-18-perforated-cascor at revision
+8a59acfc5285e72257e8d322da51bf486c3ce060 during execution.
+The checkpoint is not included in this repository or image; its model card
+identifies the checkpoint license as Apache 2.0.
