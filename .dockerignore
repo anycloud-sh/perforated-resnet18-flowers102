@@ -1,0 +1,7 @@
+.git
+.github
+validation
+README.md
+LICENSE.upstream
+*.pyc
+__pycache__
