@@ -1,0 +1,737 @@
+STARTED_AT=2026-10-01T18:52:19Z
+Collecting perforatedai==3.2.0
+  Downloading perforatedai-3.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (374 bytes)
+Requirement already satisfied: torchvision==0.20.1 in /opt/conda/lib/python3.11/site-packages (0.20.1+cu124)
+Collecting transformers==4.46.3
+  Downloading transformers-4.46.3-py3-none-any.whl.metadata (44 kB)
+Collecting scipy==1.14.1
+  Downloading scipy-1.14.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+Requirement already satisfied: torch in /opt/conda/lib/python3.11/site-packages (from perforatedai==3.2.0) (2.5.1+cu124)
+Collecting matplotlib (from perforatedai==3.2.0)
+  Downloading matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)
+Collecting pandas (from perforatedai==3.2.0)
+  Downloading pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+Collecting cryptography (from perforatedai==3.2.0)
+  Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.4 kB)
+Requirement already satisfied: pyyaml in /opt/conda/lib/python3.11/site-packages (from perforatedai==3.2.0) (6.0.2)
+Collecting safetensors (from perforatedai==3.2.0)
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Requirement already satisfied: numpy in /opt/conda/lib/python3.11/site-packages (from torchvision==0.20.1) (2.1.2)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /opt/conda/lib/python3.11/site-packages (from torchvision==0.20.1) (10.2.0)
+Requirement already satisfied: filelock in /opt/conda/lib/python3.11/site-packages (from transformers==4.46.3) (3.16.1)
+Collecting huggingface-hub<1.0,>=0.23.2 (from transformers==4.46.3)
+  Downloading huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: packaging>=20.0 in /opt/conda/lib/python3.11/site-packages (from transformers==4.46.3) (24.1)
+Collecting regex!=2019.12.17 (from transformers==4.46.3)
+  Downloading regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Requirement already satisfied: requests in /opt/conda/lib/python3.11/site-packages (from transformers==4.46.3) (2.32.3)
+Collecting tokenizers<0.21,>=0.20 (from transformers==4.46.3)
+  Downloading tokenizers-0.20.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Requirement already satisfied: tqdm>=4.27 in /opt/conda/lib/python3.11/site-packages (from transformers==4.46.3) (4.66.5)
+Requirement already satisfied: typing-extensions>=4.8.0 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (4.12.2)
+Requirement already satisfied: networkx in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (3.4.2)
+Requirement already satisfied: jinja2 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (3.1.4)
+Requirement already satisfied: fsspec in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (2024.10.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (12.4.127)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (12.4.127)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (12.4.127)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (12.4.5.8)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (11.2.1.3)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (10.3.5.147)
+Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (11.6.1.9)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (12.3.1.170)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (2.21.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (12.4.127)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (12.4.127)
+Requirement already satisfied: triton==3.1.0 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (3.1.0)
+Requirement already satisfied: sympy==1.13.1 in /opt/conda/lib/python3.11/site-packages (from torch->perforatedai==3.2.0) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /opt/conda/lib/python3.11/site-packages (from sympy==1.13.1->torch->perforatedai==3.2.0) (1.3.0)
+Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface-hub<1.0,>=0.23.2->transformers==4.46.3)
+  Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting cffi>=2.0.0 (from cryptography->perforatedai==3.2.0)
+  Downloading cffi-2.1.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+Collecting contourpy>=1.0.1 (from matplotlib->perforatedai==3.2.0)
+  Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+Collecting cycler>=0.10 (from matplotlib->perforatedai==3.2.0)
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.28.2 (from matplotlib->perforatedai==3.2.0)
+  Downloading fonttools-4.66.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (130 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib->perforatedai==3.2.0)
+  Downloading kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+Collecting pyparsing>=3 (from matplotlib->perforatedai==3.2.0)
+  Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting python-dateutil>=2.7 (from matplotlib->perforatedai==3.2.0)
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Requirement already satisfied: charset-normalizer<4,>=2 in /opt/conda/lib/python3.11/site-packages (from requests->transformers==4.46.3) (3.4.0)
+Requirement already satisfied: idna<4,>=2.5 in /opt/conda/lib/python3.11/site-packages (from requests->transformers==4.46.3) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/conda/lib/python3.11/site-packages (from requests->transformers==4.46.3) (2.2.3)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/conda/lib/python3.11/site-packages (from requests->transformers==4.46.3) (2024.8.30)
+Requirement already satisfied: pycparser in /opt/conda/lib/python3.11/site-packages (from cffi>=2.0.0->cryptography->perforatedai==3.2.0) (2.22)
+Requirement already satisfied: six>=1.5 in /opt/conda/lib/python3.11/site-packages (from python-dateutil>=2.7->matplotlib->perforatedai==3.2.0) (1.16.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /opt/conda/lib/python3.11/site-packages (from jinja2->torch->perforatedai==3.2.0) (3.0.2)
+Downloading perforatedai-3.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (7.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.2/7.2 MB 127.0 MB/s eta 0:00:00
+Downloading transformers-4.46.3-py3-none-any.whl (10.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 201.6 MB/s eta 0:00:00
+Downloading scipy-1.14.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (41.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.2/41.2 MB 132.6 MB/s eta 0:00:00
+Downloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 160.8 MB/s eta 0:00:00
+Downloading regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 805.0/805.0 kB 403.9 MB/s eta 0:00:00
+Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+Downloading tokenizers-0.20.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 192.6 MB/s eta 0:00:00
+Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 341.7 MB/s eta 0:00:00
+Downloading matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 128.2 MB/s eta 0:00:00
+Downloading pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.1/11.1 MB 206.9 MB/s eta 0:00:00
+Downloading cffi-2.1.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (217 kB)
+Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.66.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 336.0 MB/s eta 0:00:00
+Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 150.9 MB/s eta 0:00:00
+Downloading kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 121.2 MB/s eta 0:00:00
+Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Installing collected packages: scipy, safetensors, regex, python-dateutil, pyparsing, kiwisolver, hf-xet, fonttools, cycler, contourpy, cffi, pandas, matplotlib, huggingface-hub, cryptography, tokenizers, transformers, perforatedai
+  Attempting uninstall: cffi
+    Found existing installation: cffi 1.17.1
+    Uninstalling cffi-1.17.1:
+      Successfully uninstalled cffi-1.17.1
+Successfully installed cffi-2.1.1 contourpy-1.3.3 cryptography-50.0.2 cycler-0.12.1 fonttools-4.66.1 hf-xet-1.6.0 huggingface-hub-0.36.2 kiwisolver-1.5.1 matplotlib-3.11.2 pandas-3.0.6 perforatedai-3.2.0 pyparsing-3.3.3 python-dateutil-2.9.0.post0 regex-2026.9.29 safetensors-0.8.0 scipy-1.14.1 tokenizers-0.20.3 transformers-4.46.3
+8941933f971aaaeed45d140312c2cc6949962fb8eb706fd76e8c4f79a3f4f32e  flowers_comparison.py
+Building dendrites without Perforated Backpropagation
+Downloading https://thor.robots.ox.ac.uk/flowers/102/102flowers.tgz to ../data/flowers-102/102flowers.tgz
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+  0%|          | 0.00/345M [00:00<?, ?B/s]  0%|          | 98.3k/345M [00:00<08:55, 644kB/s]  0%|          | 426k/345M [00:00<03:16, 1.75MB/s]  0%|          | 918k/345M [00:00<02:00, 2.85MB/s]  1%|          | 2.92M/345M [00:00<00:46, 7.30MB/s]  2%|▏         | 6.98M/345M [00:00<00:20, 16.3MB/s]  3%|▎         | 9.01M/345M [00:00<00:19, 16.9MB/s]  4%|▍         | 13.2M/345M [00:00<00:15, 20.8MB/s]  5%|▌         | 17.5M/345M [00:01<00:13, 25.2MB/s]  6%|▌         | 20.0M/345M [00:01<00:13, 24.4MB/s]  7%|▋         | 24.0M/345M [00:01<00:12, 25.1MB/s]  8%|▊         | 28.4M/345M [00:01<00:11, 28.4MB/s]  9%|▉         | 31.3M/345M [00:01<00:11, 27.4MB/s] 10%|█         | 35.1M/345M [00:01<00:11, 26.8MB/s] 11%|█▏        | 39.6M/345M [00:01<00:10, 30.0MB/s] 12%|█▏        | 42.7M/345M [00:01<00:10, 28.9MB/s] 14%|█▎        | 46.6M/345M [00:02<00:10, 28.0MB/s] 15%|█▍        | 51.3M/345M [00:02<00:10, 28.9MB/s] 16%|█▌        | 56.0M/345M [00:02<00:09, 31.8MB/s] 17%|█▋        | 59.2M/345M [00:02<00:09, 30.5MB/s] 18%|█▊        | 63.3M/345M [00:02<00:09, 29.5MB/s] 20%|█▉        | 68.1M/345M [00:02<00:08, 32.6MB/s] 21%|██        | 71.4M/345M [00:02<00:08, 31.2MB/s] 22%|██▏       | 75.5M/345M [00:02<00:08, 32.7MB/s] 23%|██▎       | 78.8M/345M [00:03<00:08, 31.3MB/s] 24%|██▍       | 83.0M/345M [00:03<00:07, 33.0MB/s] 25%|██▌       | 86.3M/345M [00:03<00:08, 31.5MB/s] 26%|██▋       | 90.6M/345M [00:03<00:07, 33.4MB/s] 27%|██▋       | 94.0M/345M [00:03<00:07, 31.8MB/s] 28%|██▊       | 98.3M/345M [00:03<00:07, 31.0MB/s] 30%|██▉       | 103M/345M [00:03<00:06, 34.5MB/s]  31%|███       | 107M/345M [00:03<00:07, 32.9MB/s] 32%|███▏      | 111M/345M [00:04<00:07, 31.7MB/s] 34%|███▍      | 116M/345M [00:04<00:06, 32.7MB/s] 35%|███▌      | 122M/345M [00:04<00:06, 33.1MB/s] 37%|███▋      | 127M/345M [00:04<00:06, 33.6MB/s] 38%|███▊      | 132M/345M [00:04<00:05, 36.7MB/s] 39%|███▉      | 136M/345M [00:04<00:05, 35.1MB/s] 41%|████      | 141M/345M [00:04<00:05, 36.3MB/s] 42%|████▏     | 144M/345M [00:05<00:05, 34.5MB/s] 43%|████▎     | 149M/345M [00:05<00:05, 33.1MB/s] 45%|████▍     | 154M/345M [00:05<00:05, 33.9MB/s] 46%|████▋     | 160M/345M [00:05<00:05, 34.7MB/s] 48%|████▊     | 164M/345M [00:05<00:04, 38.0MB/s] 49%|████▉     | 168M/345M [00:05<00:05, 34.8MB/s] 50%|█████     | 173M/345M [00:05<00:04, 34.3MB/s] 52%|█████▏    | 179M/345M [00:05<00:04, 39.1MB/s] 53%|█████▎    | 183M/345M [00:06<00:04, 35.5MB/s] 54%|█████▍    | 187M/345M [00:06<00:04, 34.1MB/s] 56%|█████▌    | 193M/345M [00:06<00:03, 38.7MB/s] 57%|█████▋    | 197M/345M [00:06<00:04, 35.7MB/s] 58%|█████▊    | 201M/345M [00:06<00:04, 34.3MB/s] 59%|█████▉    | 205M/345M [00:06<00:03, 35.5MB/s] 61%|██████    | 209M/345M [00:06<00:03, 35.2MB/s] 62%|██████▏   | 213M/345M [00:06<00:03, 35.9MB/s] 63%|██████▎   | 218M/345M [00:07<00:03, 35.7MB/s] 64%|██████▍   | 222M/345M [00:07<00:03, 36.0MB/s] 66%|██████▌   | 226M/345M [00:07<00:03, 36.1MB/s] 67%|██████▋   | 230M/345M [00:07<00:03, 36.1MB/s] 68%|██████▊   | 235M/345M [00:07<00:03, 36.5MB/s] 69%|██████▉   | 239M/345M [00:07<00:02, 36.2MB/s] 71%|███████   | 243M/345M [00:07<00:02, 36.7MB/s] 72%|███████▏  | 247M/345M [00:07<00:02, 36.2MB/s] 73%|███████▎  | 252M/345M [00:07<00:02, 37.0MB/s] 74%|███████▍  | 256M/345M [00:08<00:02, 35.8MB/s] 76%|███████▌  | 260M/345M [00:08<00:02, 37.4MB/s] 77%|███████▋  | 264M/345M [00:08<00:02, 36.1MB/s] 78%|███████▊  | 269M/345M [00:08<00:02, 37.6MB/s] 79%|███████▉  | 273M/345M [00:08<00:02, 35.8MB/s] 80%|████████  | 278M/345M [00:08<00:01, 38.0MB/s] 82%|████████▏ | 281M/345M [00:08<00:01, 36.2MB/s] 83%|████████▎ | 286M/345M [00:08<00:01, 37.9MB/s] 84%|████████▍ | 290M/345M [00:09<00:01, 36.0MB/s] 85%|████████▌ | 295M/345M [00:09<00:01, 37.8MB/s] 87%|████████▋ | 299M/345M [00:09<00:01, 34.7MB/s] 88%|████████▊ | 304M/345M [00:09<00:01, 39.1MB/s] 89%|████████▉ | 308M/345M [00:09<00:01, 35.7MB/s] 91%|█████████ | 313M/345M [00:09<00:00, 35.7MB/s] 92%|█████████▏| 318M/345M [00:09<00:00, 39.5MB/s] 93%|█████████▎| 322M/345M [00:09<00:00, 35.9MB/s] 95%|█████████▍| 327M/345M [00:10<00:00, 36.2MB/s] 96%|█████████▋| 333M/345M [00:10<00:00, 39.8MB/s] 98%|█████████▊| 337M/345M [00:10<00:00, 36.2MB/s] 99%|█████████▉| 342M/345M [00:10<00:00, 37.2MB/s]100%|██████████| 345M/345M [00:10<00:00, 32.8MB/s]
+Extracting ../data/flowers-102/102flowers.tgz to ../data/flowers-102
+Downloading https://thor.robots.ox.ac.uk/flowers/102/imagelabels.mat to ../data/flowers-102/imagelabels.mat
+  0%|          | 0.00/502 [00:00<?, ?B/s]100%|██████████| 502/502 [00:00<00:00, 621kB/s]
+Downloading https://thor.robots.ox.ac.uk/flowers/102/setid.mat to ../data/flowers-102/setid.mat
+  0%|          | 0.00/15.0k [00:00<?, ?B/s]100%|██████████| 15.0k/15.0k [00:00<00:00, 14.4MB/s]
+
+===== Running model: torchvision/resnet-18 =====
+Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth
+  0%|          | 0.00/44.7M [00:00<?, ?B/s] 69%|██████▉   | 31.0M/44.7M [00:00<00:00, 325MB/s]100%|██████████| 44.7M/44.7M [00:00<00:00, 325MB/s]
+Train Epoch: 1 [0/1020 (0%)]	Loss: 5.007558
+Train Epoch: 1 [640/1020 (62%)]	Loss: 4.783544
+
+Test set: Average loss: 4.6311, Accuracy: 135/6149 (2%)
+
+Train Epoch: 2 [0/1020 (0%)]	Loss: 4.705076
+Train Epoch: 2 [640/1020 (62%)]	Loss: 4.601677
+
+Test set: Average loss: 4.3862, Accuracy: 372/6149 (6%)
+
+Train Epoch: 3 [0/1020 (0%)]	Loss: 4.225828
+Train Epoch: 3 [640/1020 (62%)]	Loss: 4.212519
+
+Test set: Average loss: 4.1533, Accuracy: 927/6149 (15%)
+
+Train Epoch: 4 [0/1020 (0%)]	Loss: 4.151263
+Train Epoch: 4 [640/1020 (62%)]	Loss: 3.958899
+
+Test set: Average loss: 3.9009, Accuracy: 1679/6149 (27%)
+
+Train Epoch: 5 [0/1020 (0%)]	Loss: 4.001117
+Train Epoch: 5 [640/1020 (62%)]	Loss: 3.657616
+
+Test set: Average loss: 3.6467, Accuracy: 2264/6149 (37%)
+
+Train Epoch: 6 [0/1020 (0%)]	Loss: 3.537033
+Train Epoch: 6 [640/1020 (62%)]	Loss: 3.479626
+
+Test set: Average loss: 3.3962, Accuracy: 2721/6149 (44%)
+
+Train Epoch: 7 [0/1020 (0%)]	Loss: 3.342998
+Train Epoch: 7 [640/1020 (62%)]	Loss: 3.184569
+
+Test set: Average loss: 3.1581, Accuracy: 3061/6149 (50%)
+
+Train Epoch: 8 [0/1020 (0%)]	Loss: 3.168927
+Train Epoch: 8 [640/1020 (62%)]	Loss: 3.150564
+
+Test set: Average loss: 2.9200, Accuracy: 3358/6149 (55%)
+
+Train Epoch: 9 [0/1020 (0%)]	Loss: 2.959189
+Train Epoch: 9 [640/1020 (62%)]	Loss: 2.868697
+
+Test set: Average loss: 2.7114, Accuracy: 3678/6149 (60%)
+
+Train Epoch: 10 [0/1020 (0%)]	Loss: 2.784780
+Train Epoch: 10 [640/1020 (62%)]	Loss: 2.640907
+
+Test set: Average loss: 2.5439, Accuracy: 3801/6149 (62%)
+
+Train Epoch: 11 [0/1020 (0%)]	Loss: 2.712255
+Train Epoch: 11 [640/1020 (62%)]	Loss: 2.308746
+
+Test set: Average loss: 2.3701, Accuracy: 3996/6149 (65%)
+
+Train Epoch: 12 [0/1020 (0%)]	Loss: 2.181788
+Train Epoch: 12 [640/1020 (62%)]	Loss: 2.379830
+
+Test set: Average loss: 2.2180, Accuracy: 4129/6149 (67%)
+
+Train Epoch: 13 [0/1020 (0%)]	Loss: 1.926187
+Train Epoch: 13 [640/1020 (62%)]	Loss: 2.101016
+
+Test set: Average loss: 2.1010, Accuracy: 4247/6149 (69%)
+
+Train Epoch: 14 [0/1020 (0%)]	Loss: 2.214340
+Train Epoch: 14 [640/1020 (62%)]	Loss: 1.842794
+
+Test set: Average loss: 1.9969, Accuracy: 4337/6149 (71%)
+
+Train Epoch: 15 [0/1020 (0%)]	Loss: 2.025702
+Train Epoch: 15 [640/1020 (62%)]	Loss: 1.802449
+
+Test set: Average loss: 1.8719, Accuracy: 4439/6149 (72%)
+
+Train Epoch: 16 [0/1020 (0%)]	Loss: 1.743217
+Train Epoch: 16 [640/1020 (62%)]	Loss: 1.854234
+
+Test set: Average loss: 1.7818, Accuracy: 4515/6149 (73%)
+
+Train Epoch: 17 [0/1020 (0%)]	Loss: 1.625067
+Train Epoch: 17 [640/1020 (62%)]	Loss: 1.722633
+
+Test set: Average loss: 1.7031, Accuracy: 4560/6149 (74%)
+
+Train Epoch: 18 [0/1020 (0%)]	Loss: 1.581295
+Train Epoch: 18 [640/1020 (62%)]	Loss: 1.588762
+
+Test set: Average loss: 1.6359, Accuracy: 4631/6149 (75%)
+
+Train Epoch: 19 [0/1020 (0%)]	Loss: 1.406343
+Train Epoch: 19 [640/1020 (62%)]	Loss: 1.379055
+
+Test set: Average loss: 1.5665, Accuracy: 4710/6149 (77%)
+
+Train Epoch: 20 [0/1020 (0%)]	Loss: 1.289854
+Train Epoch: 20 [640/1020 (62%)]	Loss: 1.468915
+
+Test set: Average loss: 1.5230, Accuracy: 4749/6149 (77%)
+
+Train Epoch: 21 [0/1020 (0%)]	Loss: 1.536515
+Train Epoch: 21 [640/1020 (62%)]	Loss: 1.456001
+
+Test set: Average loss: 1.4687, Accuracy: 4777/6149 (78%)
+
+Train Epoch: 22 [0/1020 (0%)]	Loss: 1.287506
+Train Epoch: 22 [640/1020 (62%)]	Loss: 1.403374
+
+Test set: Average loss: 1.4167, Accuracy: 4817/6149 (78%)
+
+Train Epoch: 23 [0/1020 (0%)]	Loss: 1.146760
+Train Epoch: 23 [640/1020 (62%)]	Loss: 1.352692
+
+Test set: Average loss: 1.3781, Accuracy: 4857/6149 (79%)
+
+Train Epoch: 24 [0/1020 (0%)]	Loss: 1.157633
+Train Epoch: 24 [640/1020 (62%)]	Loss: 1.161072
+
+Test set: Average loss: 1.3371, Accuracy: 4884/6149 (79%)
+
+Train Epoch: 25 [0/1020 (0%)]	Loss: 1.119584
+Train Epoch: 25 [640/1020 (62%)]	Loss: 1.004102
+
+Test set: Average loss: 1.3199, Accuracy: 4896/6149 (80%)
+
+Train Epoch: 26 [0/1020 (0%)]	Loss: 1.096006
+Train Epoch: 26 [640/1020 (62%)]	Loss: 1.090131
+
+Test set: Average loss: 1.2870, Accuracy: 4909/6149 (80%)
+
+Train Epoch: 27 [0/1020 (0%)]	Loss: 1.081496
+Train Epoch: 27 [640/1020 (62%)]	Loss: 1.203642
+
+Test set: Average loss: 1.2529, Accuracy: 4928/6149 (80%)
+
+Train Epoch: 28 [0/1020 (0%)]	Loss: 0.971677
+Train Epoch: 28 [640/1020 (62%)]	Loss: 1.122481
+
+Test set: Average loss: 1.2353, Accuracy: 4954/6149 (81%)
+
+Train Epoch: 29 [0/1020 (0%)]	Loss: 1.077811
+Train Epoch: 29 [640/1020 (62%)]	Loss: 1.049299
+
+Test set: Average loss: 1.2121, Accuracy: 4978/6149 (81%)
+
+Train Epoch: 30 [0/1020 (0%)]	Loss: 1.014839
+Train Epoch: 30 [640/1020 (62%)]	Loss: 1.001517
+
+Test set: Average loss: 1.2029, Accuracy: 4985/6149 (81%)
+
+Train Epoch: 31 [0/1020 (0%)]	Loss: 1.200093
+Train Epoch: 31 [640/1020 (62%)]	Loss: 0.993340
+
+Test set: Average loss: 1.1713, Accuracy: 5015/6149 (82%)
+
+Train Epoch: 32 [0/1020 (0%)]	Loss: 1.038415
+Train Epoch: 32 [640/1020 (62%)]	Loss: 1.097256
+
+Test set: Average loss: 1.1609, Accuracy: 5031/6149 (82%)
+
+Train Epoch: 33 [0/1020 (0%)]	Loss: 1.055554
+Train Epoch: 33 [640/1020 (62%)]	Loss: 0.936106
+
+Test set: Average loss: 1.1507, Accuracy: 5031/6149 (82%)
+
+Train Epoch: 34 [0/1020 (0%)]	Loss: 0.953805
+Train Epoch: 34 [640/1020 (62%)]	Loss: 0.994708
+
+Test set: Average loss: 1.1425, Accuracy: 5041/6149 (82%)
+
+Train Epoch: 35 [0/1020 (0%)]	Loss: 1.129285
+Train Epoch: 35 [640/1020 (62%)]	Loss: 0.984836
+
+Test set: Average loss: 1.1331, Accuracy: 5045/6149 (82%)
+
+Train Epoch: 36 [0/1020 (0%)]	Loss: 0.824735
+Train Epoch: 36 [640/1020 (62%)]	Loss: 1.003942
+
+Test set: Average loss: 1.1276, Accuracy: 5042/6149 (82%)
+
+Train Epoch: 37 [0/1020 (0%)]	Loss: 0.820907
+Train Epoch: 37 [640/1020 (62%)]	Loss: 0.859345
+
+Test set: Average loss: 1.1168, Accuracy: 5063/6149 (82%)
+
+Train Epoch: 38 [0/1020 (0%)]	Loss: 0.787480
+Train Epoch: 38 [640/1020 (62%)]	Loss: 0.795606
+
+Test set: Average loss: 1.1116, Accuracy: 5063/6149 (82%)
+
+Train Epoch: 39 [0/1020 (0%)]	Loss: 0.896971
+Train Epoch: 39 [640/1020 (62%)]	Loss: 1.067416
+
+Test set: Average loss: 1.1011, Accuracy: 5070/6149 (82%)
+
+Train Epoch: 40 [0/1020 (0%)]	Loss: 1.008661
+Train Epoch: 40 [640/1020 (62%)]	Loss: 1.093487
+
+Test set: Average loss: 1.1009, Accuracy: 5061/6149 (82%)
+
+Train Epoch: 41 [0/1020 (0%)]	Loss: 0.896346
+Train Epoch: 41 [640/1020 (62%)]	Loss: 1.101836
+
+Test set: Average loss: 1.0939, Accuracy: 5072/6149 (82%)
+
+Train Epoch: 42 [0/1020 (0%)]	Loss: 0.779912
+Train Epoch: 42 [640/1020 (62%)]	Loss: 0.988952
+
+Test set: Average loss: 1.0990, Accuracy: 5057/6149 (82%)
+
+Train Epoch: 43 [0/1020 (0%)]	Loss: 0.907552
+Train Epoch: 43 [640/1020 (62%)]	Loss: 0.784418
+
+Test set: Average loss: 1.1004, Accuracy: 5072/6149 (82%)
+
+Train Epoch: 44 [0/1020 (0%)]	Loss: 1.054491
+Train Epoch: 44 [640/1020 (62%)]	Loss: 0.971848
+
+Test set: Average loss: 1.0945, Accuracy: 5060/6149 (82%)
+
+Train Epoch: 45 [0/1020 (0%)]	Loss: 0.926631
+Train Epoch: 45 [640/1020 (62%)]	Loss: 1.009534
+
+Test set: Average loss: 1.0940, Accuracy: 5070/6149 (82%)
+
+Train Epoch: 46 [0/1020 (0%)]	Loss: 0.852001
+Train Epoch: 46 [640/1020 (62%)]	Loss: 0.835927
+
+Test set: Average loss: 1.0894, Accuracy: 5065/6149 (82%)
+
+Train Epoch: 47 [0/1020 (0%)]	Loss: 1.069343
+Train Epoch: 47 [640/1020 (62%)]	Loss: 1.018371
+
+Test set: Average loss: 1.0889, Accuracy: 5073/6149 (83%)
+
+Train Epoch: 48 [0/1020 (0%)]	Loss: 1.125220
+Train Epoch: 48 [640/1020 (62%)]	Loss: 0.851067
+
+Test set: Average loss: 1.0826, Accuracy: 5067/6149 (82%)
+
+Train Epoch: 49 [0/1020 (0%)]	Loss: 0.834115
+Train Epoch: 49 [640/1020 (62%)]	Loss: 0.750350
+
+Test set: Average loss: 1.0837, Accuracy: 5078/6149 (83%)
+
+Train Epoch: 50 [0/1020 (0%)]	Loss: 0.919459
+Train Epoch: 50 [640/1020 (62%)]	Loss: 1.000135
+
+Test set: Average loss: 1.0914, Accuracy: 5073/6149 (83%)
+
+
+===== Running model: perforated-ai/resnet-18-perforated-cascor =====
+Variable 'candidate_grad_clipping' does not exist.  Ignoring set attempt.
+Variable 'candidate_grad_clipping' does not exist.  Ignoring set attempt.
+Variable 'candidate_graph_mode' does not exist.  Ignoring set attempt.
+Variable 'candidate_graph_mode' does not exist.  Ignoring set attempt.
+Variable 'cap_at_n' does not exist.  Ignoring set attempt.
+Variable 'cap_at_n' does not exist.  Ignoring set attempt.
+Variable 'correlations_by_mean' does not exist.  Ignoring set attempt.
+Variable 'correlations_by_mean' does not exist.  Ignoring set attempt.
+Variable 'count_training_params' does not exist.  Ignoring set attempt.
+Variable 'count_training_params' does not exist.  Ignoring set attempt.
+Variable 'debugging_backwards_nan' does not exist.  Ignoring set attempt.
+Variable 'debugging_backwards_nan' does not exist.  Ignoring set attempt.
+Variable 'debugging_memory_leak' does not exist.  Ignoring set attempt.
+Variable 'debugging_memory_leak' does not exist.  Ignoring set attempt.
+Variable 'default_random_pai_to_candidates' does not exist.  Ignoring set attempt.
+Variable 'default_random_pai_to_candidates' does not exist.  Ignoring set attempt.
+Variable 'dendrite_graph_mode' does not exist.  Ignoring set attempt.
+Variable 'dendrite_graph_mode' does not exist.  Ignoring set attempt.
+Variable 'dendrite_learn_mode' does not exist.  Ignoring set attempt.
+Variable 'dendrite_learn_mode' does not exist.  Ignoring set attempt.
+Variable 'dendrite_update_mode' does not exist.  Ignoring set attempt.
+Variable 'dendrite_update_mode' does not exist.  Ignoring set attempt.
+Variable 'doing_mean_best' does not exist.  Ignoring set attempt.
+Variable 'doing_mean_best' does not exist.  Ignoring set attempt.
+Variable 'doing_thing' does not exist.  Ignoring set attempt.
+Variable 'doing_thing' does not exist.  Ignoring set attempt.
+Variable 'dpp_verbose' does not exist.  Ignoring set attempt.
+Variable 'dpp_verbose' does not exist.  Ignoring set attempt.
+Variable 'grad_sum_first' does not exist.  Ignoring set attempt.
+Variable 'grad_sum_first' does not exist.  Ignoring set attempt.
+Variable 'graphing_current_scores' does not exist.  Ignoring set attempt.
+Variable 'graphing_current_scores' does not exist.  Ignoring set attempt.
+Variable 'initial_correlation_batches' does not exist.  Ignoring set attempt.
+Variable 'initial_correlation_batches' does not exist.  Ignoring set attempt.
+Variable 'no_backward_workaround' does not exist.  Ignoring set attempt.
+Variable 'no_backward_workaround' does not exist.  Ignoring set attempt.
+Variable 'normalized_covariance' does not exist.  Ignoring set attempt.
+Variable 'normalized_covariance' does not exist.  Ignoring set attempt.
+Variable 'p_epochs_to_switch' does not exist.  Ignoring set attempt.
+Variable 'p_epochs_to_switch' does not exist.  Ignoring set attempt.
+Variable 'pai_email' does not exist.  Ignoring set attempt.
+Variable 'pai_email' does not exist.  Ignoring set attempt.
+Variable 'pai_improvement_threshold' does not exist.  Ignoring set attempt.
+Variable 'pai_improvement_threshold' does not exist.  Ignoring set attempt.
+Variable 'pai_improvement_threshold_raw' does not exist.  Ignoring set attempt.
+Variable 'pai_improvement_threshold_raw' does not exist.  Ignoring set attempt.
+Variable 'pai_token' does not exist.  Ignoring set attempt.
+Variable 'pai_token' does not exist.  Ignoring set attempt.
+Variable 'running_average_pb' does not exist.  Ignoring set attempt.
+Variable 'running_average_pb' does not exist.  Ignoring set attempt.
+[PAI Config] Saved 67 variables → /workspace/run/PAI/PAI_config.json
+[PAI Config] Saved 67 variables → /workspace/run/PAI/PAI_config.json
+[PAI Config] Saved 67 variables → /workspace/run/PAI/PAI_config.json
+[PAI Config] Saved 67 variables → /workspace/run/PAI/PAI_config.json
+Variable 'variable_p' does not exist.  Ignoring set attempt.
+Variable 'variable_p' does not exist.  Ignoring set attempt.
+[PAI Config] Saved 67 variables → /workspace/run/PAI/PAI_config.json
+[PAI Config] Saved 67 variables → /workspace/run/PAI/PAI_config.json
+[PAI Config] Saved 67 variables → /workspace/run/PAI/PAI_config.json
+Train Epoch: 1 [0/1020 (0%)]	Loss: 5.025036
+Train Epoch: 1 [640/1020 (62%)]	Loss: 4.873984
+
+Test set: Average loss: 4.5735, Accuracy: 224/6149 (4%)
+
+Train Epoch: 2 [0/1020 (0%)]	Loss: 4.428615
+Train Epoch: 2 [640/1020 (62%)]	Loss: 4.327208
+
+Test set: Average loss: 4.1717, Accuracy: 670/6149 (11%)
+
+Train Epoch: 3 [0/1020 (0%)]	Loss: 4.095700
+Train Epoch: 3 [640/1020 (62%)]	Loss: 3.804527
+
+Test set: Average loss: 3.7276, Accuracy: 1380/6149 (22%)
+
+Train Epoch: 4 [0/1020 (0%)]	Loss: 3.741665
+Train Epoch: 4 [640/1020 (62%)]	Loss: 3.338354
+
+Test set: Average loss: 3.2702, Accuracy: 2306/6149 (38%)
+
+Train Epoch: 5 [0/1020 (0%)]	Loss: 3.046292
+Train Epoch: 5 [640/1020 (62%)]	Loss: 2.952717
+
+Test set: Average loss: 2.8739, Accuracy: 2909/6149 (47%)
+
+Train Epoch: 6 [0/1020 (0%)]	Loss: 3.007799
+Train Epoch: 6 [640/1020 (62%)]	Loss: 2.788738
+
+Test set: Average loss: 2.5173, Accuracy: 3407/6149 (55%)
+
+Train Epoch: 7 [0/1020 (0%)]	Loss: 2.297298
+Train Epoch: 7 [640/1020 (62%)]	Loss: 2.296525
+
+Test set: Average loss: 2.2334, Accuracy: 3846/6149 (63%)
+
+Train Epoch: 8 [0/1020 (0%)]	Loss: 1.802887
+Train Epoch: 8 [640/1020 (62%)]	Loss: 2.085779
+
+Test set: Average loss: 1.9501, Accuracy: 4059/6149 (66%)
+
+Train Epoch: 9 [0/1020 (0%)]	Loss: 1.776591
+Train Epoch: 9 [640/1020 (62%)]	Loss: 1.797121
+
+Test set: Average loss: 1.7816, Accuracy: 4306/6149 (70%)
+
+Train Epoch: 10 [0/1020 (0%)]	Loss: 1.455061
+Train Epoch: 10 [640/1020 (62%)]	Loss: 1.593895
+
+Test set: Average loss: 1.5957, Accuracy: 4485/6149 (73%)
+
+Train Epoch: 11 [0/1020 (0%)]	Loss: 1.407789
+Train Epoch: 11 [640/1020 (62%)]	Loss: 1.469247
+
+Test set: Average loss: 1.4748, Accuracy: 4552/6149 (74%)
+
+Train Epoch: 12 [0/1020 (0%)]	Loss: 1.435564
+Train Epoch: 12 [640/1020 (62%)]	Loss: 1.359671
+
+Test set: Average loss: 1.3606, Accuracy: 4648/6149 (76%)
+
+Train Epoch: 13 [0/1020 (0%)]	Loss: 1.086779
+Train Epoch: 13 [640/1020 (62%)]	Loss: 1.137057
+
+Test set: Average loss: 1.2872, Accuracy: 4718/6149 (77%)
+
+Train Epoch: 14 [0/1020 (0%)]	Loss: 1.146358
+Train Epoch: 14 [640/1020 (62%)]	Loss: 0.879660
+
+Test set: Average loss: 1.1973, Accuracy: 4816/6149 (78%)
+
+Train Epoch: 15 [0/1020 (0%)]	Loss: 1.026932
+Train Epoch: 15 [640/1020 (62%)]	Loss: 1.115331
+
+Test set: Average loss: 1.1257, Accuracy: 4866/6149 (79%)
+
+Train Epoch: 16 [0/1020 (0%)]	Loss: 0.930332
+Train Epoch: 16 [640/1020 (62%)]	Loss: 0.796349
+
+Test set: Average loss: 1.0661, Accuracy: 4915/6149 (80%)
+
+Train Epoch: 17 [0/1020 (0%)]	Loss: 0.913194
+Train Epoch: 17 [640/1020 (62%)]	Loss: 0.932905
+
+Test set: Average loss: 1.0374, Accuracy: 4977/6149 (81%)
+
+Train Epoch: 18 [0/1020 (0%)]	Loss: 0.896911
+Train Epoch: 18 [640/1020 (62%)]	Loss: 0.814990
+
+Test set: Average loss: 0.9845, Accuracy: 5020/6149 (82%)
+
+Train Epoch: 19 [0/1020 (0%)]	Loss: 0.656586
+Train Epoch: 19 [640/1020 (62%)]	Loss: 0.814881
+
+Test set: Average loss: 0.9556, Accuracy: 5032/6149 (82%)
+
+Train Epoch: 20 [0/1020 (0%)]	Loss: 0.743261
+Train Epoch: 20 [640/1020 (62%)]	Loss: 0.676328
+
+Test set: Average loss: 0.9016, Accuracy: 5111/6149 (83%)
+
+Train Epoch: 21 [0/1020 (0%)]	Loss: 0.685860
+Train Epoch: 21 [640/1020 (62%)]	Loss: 0.518428
+
+Test set: Average loss: 0.8989, Accuracy: 5085/6149 (83%)
+
+Train Epoch: 22 [0/1020 (0%)]	Loss: 0.768583
+Train Epoch: 22 [640/1020 (62%)]	Loss: 0.590464
+
+Test set: Average loss: 0.8623, Accuracy: 5110/6149 (83%)
+
+Train Epoch: 23 [0/1020 (0%)]	Loss: 0.616120
+Train Epoch: 23 [640/1020 (62%)]	Loss: 0.504771
+
+Test set: Average loss: 0.8500, Accuracy: 5120/6149 (83%)
+
+Train Epoch: 24 [0/1020 (0%)]	Loss: 0.362085
+Train Epoch: 24 [640/1020 (62%)]	Loss: 0.487691
+
+Test set: Average loss: 0.8268, Accuracy: 5146/6149 (84%)
+
+Train Epoch: 25 [0/1020 (0%)]	Loss: 0.577815
+Train Epoch: 25 [640/1020 (62%)]	Loss: 0.685765
+
+Test set: Average loss: 0.8101, Accuracy: 5180/6149 (84%)
+
+Train Epoch: 26 [0/1020 (0%)]	Loss: 0.551681
+Train Epoch: 26 [640/1020 (62%)]	Loss: 0.517010
+
+Test set: Average loss: 0.7876, Accuracy: 5202/6149 (85%)
+
+Train Epoch: 27 [0/1020 (0%)]	Loss: 0.441923
+Train Epoch: 27 [640/1020 (62%)]	Loss: 0.784803
+
+Test set: Average loss: 0.7884, Accuracy: 5200/6149 (85%)
+
+Train Epoch: 28 [0/1020 (0%)]	Loss: 0.662738
+Train Epoch: 28 [640/1020 (62%)]	Loss: 0.399983
+
+Test set: Average loss: 0.7771, Accuracy: 5209/6149 (85%)
+
+Train Epoch: 29 [0/1020 (0%)]	Loss: 0.399150
+Train Epoch: 29 [640/1020 (62%)]	Loss: 0.536091
+
+Test set: Average loss: 0.7643, Accuracy: 5215/6149 (85%)
+
+Train Epoch: 30 [0/1020 (0%)]	Loss: 0.504833
+Train Epoch: 30 [640/1020 (62%)]	Loss: 0.504104
+
+Test set: Average loss: 0.7524, Accuracy: 5227/6149 (85%)
+
+Train Epoch: 31 [0/1020 (0%)]	Loss: 0.511945
+Train Epoch: 31 [640/1020 (62%)]	Loss: 0.521460
+
+Test set: Average loss: 0.7423, Accuracy: 5245/6149 (85%)
+
+Train Epoch: 32 [0/1020 (0%)]	Loss: 0.351170
+Train Epoch: 32 [640/1020 (62%)]	Loss: 0.426633
+
+Test set: Average loss: 0.7366, Accuracy: 5252/6149 (85%)
+
+Train Epoch: 33 [0/1020 (0%)]	Loss: 0.502373
+Train Epoch: 33 [640/1020 (62%)]	Loss: 0.497837
+
+Test set: Average loss: 0.7359, Accuracy: 5258/6149 (86%)
+
+Train Epoch: 34 [0/1020 (0%)]	Loss: 0.435241
+Train Epoch: 34 [640/1020 (62%)]	Loss: 0.331959
+
+Test set: Average loss: 0.7346, Accuracy: 5259/6149 (86%)
+
+Train Epoch: 35 [0/1020 (0%)]	Loss: 0.335620
+Train Epoch: 35 [640/1020 (62%)]	Loss: 0.371362
+
+Test set: Average loss: 0.7228, Accuracy: 5270/6149 (86%)
+
+Train Epoch: 36 [0/1020 (0%)]	Loss: 0.415707
+Train Epoch: 36 [640/1020 (62%)]	Loss: 0.502851
+
+Test set: Average loss: 0.7230, Accuracy: 5275/6149 (86%)
+
+Train Epoch: 37 [0/1020 (0%)]	Loss: 0.519431
+Train Epoch: 37 [640/1020 (62%)]	Loss: 0.391156
+
+Test set: Average loss: 0.7194, Accuracy: 5281/6149 (86%)
+
+Train Epoch: 38 [0/1020 (0%)]	Loss: 0.453249
+Train Epoch: 38 [640/1020 (62%)]	Loss: 0.350092
+
+Test set: Average loss: 0.7123, Accuracy: 5299/6149 (86%)
+
+Train Epoch: 39 [0/1020 (0%)]	Loss: 0.314340
+Train Epoch: 39 [640/1020 (62%)]	Loss: 0.440132
+
+Test set: Average loss: 0.7115, Accuracy: 5290/6149 (86%)
+
+Train Epoch: 40 [0/1020 (0%)]	Loss: 0.384359
+Train Epoch: 40 [640/1020 (62%)]	Loss: 0.373455
+
+Test set: Average loss: 0.7085, Accuracy: 5297/6149 (86%)
+
+Train Epoch: 41 [0/1020 (0%)]	Loss: 0.508412
+Train Epoch: 41 [640/1020 (62%)]	Loss: 0.400403
+
+Test set: Average loss: 0.7070, Accuracy: 5299/6149 (86%)
+
+Train Epoch: 42 [0/1020 (0%)]	Loss: 0.351352
+Train Epoch: 42 [640/1020 (62%)]	Loss: 0.432832
+
+Test set: Average loss: 0.7050, Accuracy: 5300/6149 (86%)
+
+Train Epoch: 43 [0/1020 (0%)]	Loss: 0.335705
+Train Epoch: 43 [640/1020 (62%)]	Loss: 0.266470
+
+Test set: Average loss: 0.7003, Accuracy: 5304/6149 (86%)
+
+Train Epoch: 44 [0/1020 (0%)]	Loss: 0.459543
+Train Epoch: 44 [640/1020 (62%)]	Loss: 0.322811
+
+Test set: Average loss: 0.7000, Accuracy: 5299/6149 (86%)
+
+Train Epoch: 45 [0/1020 (0%)]	Loss: 0.469773
+Train Epoch: 45 [640/1020 (62%)]	Loss: 0.305306
+
+Test set: Average loss: 0.7034, Accuracy: 5295/6149 (86%)
+
+Train Epoch: 46 [0/1020 (0%)]	Loss: 0.369451
+Train Epoch: 46 [640/1020 (62%)]	Loss: 0.406859
+
+Test set: Average loss: 0.7011, Accuracy: 5299/6149 (86%)
+
+Train Epoch: 47 [0/1020 (0%)]	Loss: 0.341147
+Train Epoch: 47 [640/1020 (62%)]	Loss: 0.377634
+
+Test set: Average loss: 0.6991, Accuracy: 5297/6149 (86%)
+
+Train Epoch: 48 [0/1020 (0%)]	Loss: 0.521131
+Train Epoch: 48 [640/1020 (62%)]	Loss: 0.283438
+
+Test set: Average loss: 0.6966, Accuracy: 5300/6149 (86%)
+
+Train Epoch: 49 [0/1020 (0%)]	Loss: 0.338387
+Train Epoch: 49 [640/1020 (62%)]	Loss: 0.411721
+
+Test set: Average loss: 0.6985, Accuracy: 5310/6149 (86%)
+
+Train Epoch: 50 [0/1020 (0%)]	Loss: 0.328998
+Train Epoch: 50 [640/1020 (62%)]	Loss: 0.389391
+
+Test set: Average loss: 0.7032, Accuracy: 5299/6149 (86%)
+
+
+===== Final Comparison =====
+ epoch   tv_score   tv_delta  pai_score  pai_delta
+     1       2.20        N/A       3.64        N/A
+     2       6.05      +3.85      10.90      +7.25
+     3      15.08      +9.03      22.44     +11.55
+     4      27.31     +12.23      37.50     +15.06
+     5      36.82      +9.51      47.31      +9.81
+     6      44.25      +7.43      55.41      +8.10
+     7      49.78      +5.53      62.55      +7.14
+     8      54.61      +4.83      66.01      +3.46
+     9      59.81      +5.20      70.03      +4.02
+    10      61.81      +2.00      72.94      +2.91
+    11      64.99      +3.17      74.03      +1.09
+    12      67.15      +2.16      75.59      +1.56
+    13      69.07      +1.92      76.73      +1.14
+    14      70.53      +1.46      78.32      +1.59
+    15      72.19      +1.66      79.13      +0.81
+    16      73.43      +1.24      79.93      +0.80
+    17      74.16      +0.73      80.94      +1.01
+    18      75.31      +1.15      81.64      +0.70
+    19      76.60      +1.28      81.83      +0.20
+    20      77.23      +0.63      83.12      +1.28
+    21      77.69      +0.46      82.70      -0.42
+    22      78.34      +0.65      83.10      +0.41
+    23      78.99      +0.65      83.27      +0.16
+    24      79.43      +0.44      83.69      +0.42
+    25      79.62      +0.20      84.24      +0.55
+    26      79.83      +0.21      84.60      +0.36
+    27      80.14      +0.31      84.57      -0.03
+    28      80.57      +0.42      84.71      +0.15
+    29      80.96      +0.39      84.81      +0.10
+    30      81.07      +0.11      85.01      +0.20
+    31      81.56      +0.49      85.30      +0.29
+    32      81.82      +0.26      85.41      +0.11
+    33      81.82      +0.00      85.51      +0.10
+    34      81.98      +0.16      85.53      +0.02
+    35      82.05      +0.07      85.70      +0.18
+    36      82.00      -0.05      85.79      +0.08
+    37      82.34      +0.34      85.88      +0.10
+    38      82.34      +0.00      86.18      +0.29
+    39      82.45      +0.11      86.03      -0.15
+    40      82.31      -0.15      86.14      +0.11
+    41      82.48      +0.18      86.18      +0.03
+    42      82.24      -0.24      86.19      +0.02
+    43      82.48      +0.24      86.26      +0.07
+    44      82.29      -0.20      86.18      -0.08
+    45      82.45      +0.16      86.11      -0.07
+    46      82.37      -0.08      86.18      +0.07
+    47      82.50      +0.13      86.14      -0.03
+    48      82.40      -0.10      86.19      +0.05
+    49      82.58      +0.18      86.36      +0.16
+    50      82.50      -0.08      86.18      -0.18
+FINISHED_AT=2026-10-01T19:46:50Z
