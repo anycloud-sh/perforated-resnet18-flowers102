@@ -40,13 +40,13 @@ augmentations, optimizer, learning rate, scheduler, and seed.
   Lambda A10; VM time including setup was about 58 minutes ($1.25). The Job
   downloaded the 345 MB Flowers archive, approximately 45 MB of standard
   ResNet-18 weights, and a 50 MB Perforated checkpoint. The default run has no
-  checkpointing because it is a finite comparison without resumable model
-  state in this artifact.
+  checkpoint mount. The Spot candidate saves resumable model state whenever
+  `/mnt/checkpoint` is mounted; its checkpoint bucket is removed when the Spot
+  Job finishes.
 
-The candidate digest is the exact image used for the Lambda evidence. The
-release tag `v0.1.0` points to that same manifest. GitHub Actions builds the
-candidate from `main` and promotes a digest only after checking the committed
-50-epoch validation record.
+The `v0.1.0` digest is the exact image used for the original Lambda evidence.
+GitHub Actions builds candidates from `main` and promotes a digest only after
+checking the committed validation records.
 
 ## Build and release
 
@@ -65,6 +65,24 @@ The older [`check_promotion.py`](validation/check_promotion.py) records the
 `v0.1.0` Lambda release gate; the [original promotion run](https://github.com/anycloud-sh/perforated-resnet18-flowers102/actions/runs/36921919359)
 passed; anonymous registry requests for the digest and `v0.1.0` both resolve
 to `sha256:b674943c8ea20e190fd66f77d054eccbb25131f20ad47a16e1d1c0bb6d9a38d6`.
+
+## Spot candidate status
+
+The tested, unpromoted Spot candidate is
+`sha256:732f4747857c0fe8744c6058159ddc642e14cbb974504506a9aa54932bcfea7f`
+from source commit `4d5128838674fc2f1af6f9667e20fd50da7c7bf9`. Its
+[hosted build](https://github.com/anycloud-sh/perforated-resnet18-flowers102/actions/runs/37040879663)
+passed recovery tests on both real model formats before publishing. The
+[complete Lambda validation](validation/lambda-spot-image.json) and
+[raw log](validation/lambda-spot-image.log) show 50 epochs for each model, a
+synchronized CUDA operation, and the same final measured accuracies: 82.50%
+and 86.18%. VM time was about 56 minutes 55 seconds ($1.22).
+
+On Spot, the runner detects the automatic `/mnt/checkpoint` mount and saves
+model, optimizer, scheduler, accuracy, and random-number state after every
+epoch. The AWS `g5.xlarge` run in `us-east-2` is waiting for a 4-vCPU G-family
+Spot quota increase. Until that complete run passes, `v0.1.0` and the Lambda
+command above remain the public release.
 
 ## Change the run
 
