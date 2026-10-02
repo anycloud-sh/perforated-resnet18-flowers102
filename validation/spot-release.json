@@ -1,0 +1,33 @@
+{
+  "image": "ghcr.io/anycloud-sh/perforated-resnet18-flowers102",
+  "artifact_revision": "4d5128838674fc2f1af6f9667e20fd50da7c7bf9",
+  "checked_at": "2026-10-02T20:47:43.090625+00:00",
+  "anonymous_token_request": true,
+  "repository_public": true,
+  "package_linked": true,
+  "image_source_label": "https://github.com/anycloud-sh/perforated-resnet18-flowers102",
+  "promotion_run": "https://github.com/anycloud-sh/perforated-resnet18-flowers102/actions/runs/37062534888",
+  "promotion_conclusion": "success",
+  "manifests": [
+    {
+      "reference": "sha256:732f4747857c0fe8744c6058159ddc642e14cbb974504506a9aa54932bcfea7f",
+      "http_status": 200,
+      "digest": "sha256:732f4747857c0fe8744c6058159ddc642e14cbb974504506a9aa54932bcfea7f"
+    },
+    {
+      "reference": "candidate-4d5128838674fc2f1af6f9667e20fd50da7c7bf9",
+      "http_status": 200,
+      "digest": "sha256:732f4747857c0fe8744c6058159ddc642e14cbb974504506a9aa54932bcfea7f"
+    },
+    {
+      "reference": "v0.2.0",
+      "http_status": 200,
+      "digest": "sha256:732f4747857c0fe8744c6058159ddc642e14cbb974504506a9aa54932bcfea7f"
+    },
+    {
+      "reference": "v0.1.0",
+      "http_status": 200,
+      "digest": "sha256:b674943c8ea20e190fd66f77d054eccbb25131f20ad47a16e1d1c0bb6d9a38d6"
+    }
+  ]
+}

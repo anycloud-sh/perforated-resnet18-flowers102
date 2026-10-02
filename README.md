@@ -13,13 +13,16 @@ proprietary checkpoint training process.
 ## Run
 
 ```bash
-anycloud job ghcr.io/anycloud-sh/perforated-resnet18-flowers102@sha256:b674943c8ea20e190fd66f77d054eccbb25131f20ad47a16e1d1c0bb6d9a38d6 \
-  --credentials lambda --gpu-type a10 --gpus all --disk-size 100
+anycloud job ghcr.io/anycloud-sh/perforated-resnet18-flowers102@sha256:732f4747857c0fe8744c6058159ddc642e14cbb974504506a9aa54932bcfea7f \
+  --credentials awstest --region us-east-2 --vm-type g5.xlarge \
+  --spot --gpus all --disk-size 100
 ```
 
-Use your saved Lambda credential name if it differs from `lambda`. The image's
-default command trains both models for 50 epochs using the upstream data splits,
-augmentations, optimizer, learning rate, scheduler, and seed.
+Use your saved AWS credential name if it differs from `awstest`. The account
+needs G-family Spot quota in `us-east-2`; available quota does not guarantee
+Spot capacity. The image's default command trains both models for 50 epochs
+using the upstream data splits, augmentations, optimizer, learning rate,
+scheduler, and seed.
 
 ## Input, output, and evidence
 
@@ -28,25 +31,52 @@ augmentations, optimizer, learning rate, scheduler, and seed.
   standard Torchvision ResNet-18 weights at runtime. Neither is in the image.
 - **Output:** Job logs print loss and accuracy after each epoch, then a table of
   both models' accuracy and epoch-to-epoch changes. These logs are the result;
-  the Job writes no durable output file and requires no output bucket.
-- **Observed result:** after 50 epochs, standard ResNet-18 reached **82.50%**
-  test accuracy and the Perforated checkpoint reached **86.18%** (+3.68
-  percentage points). This is one seeded comparison on the upstream test split,
-  not a general performance guarantee. See the [validation record](validation/lambda-a10.json)
-  and complete [Job log](validation/lambda-a10.log) for every epoch. A
-  [second Lambda run](validation/public-pull-repeat.md) from the public digest
-  completed the same 50-epoch table.
-- **Runtime and downloads:** the container ran for 52 minutes 55 seconds on
-  Lambda A10; VM time including setup was about 58 minutes ($1.25). The Job
-  downloaded the 345 MB Flowers archive, approximately 45 MB of standard
-  ResNet-18 weights, and a 50 MB Perforated checkpoint. The default run has no
-  checkpoint mount. The Spot candidate saves resumable model state whenever
-  `/mnt/checkpoint` is mounted; its checkpoint bucket is removed when the Spot
-  Job finishes.
+  no dashboard endpoint or durable output file is required. Spot checkpoints
+  are temporary recovery state, not a retained final model.
+- **Downloads:** the Job downloaded the 345 MB Flowers archive, approximately
+  45 MB of standard ResNet-18 weights, and a 50 MB Perforated checkpoint.
 
-The `v0.1.0` digest is the exact image used for the original Lambda evidence.
-GitHub Actions builds candidates from `main` and promotes a digest only after
-checking the committed validation records.
+Both complete validation runs of `v0.2.0` produced these final test accuracies:
+
+| Model                   | Epoch-50 accuracy |
+| ----------------------- | ----------------: |
+| Standard ResNet-18      |            82.50% |
+| Perforated AI ResNet-18 |            86.18% |
+
+The observed difference was **+3.68 percentage points** for the Perforated
+checkpoint. This seeded comparison on the upstream test split does not
+guarantee the same ordering in another run. The complete, finite 50-row tables
+are in the [AWS Spot record](validation/aws-spot.json) and
+[raw training log](validation/aws-spot.log), and the
+[Lambda record](validation/lambda-spot-image.json) and
+[raw log](validation/lambda-spot-image.log).
+
+| Validation                         | GPU         | Recorded VM time      | Recorded compute cost |
+| ---------------------------------- | ----------- | --------------------- | --------------------: |
+| AWS Spot, `g5.xlarge`, `us-east-2` | NVIDIA A10G | 66 minutes 26 seconds |       $0.57 estimated |
+| Lambda                             | NVIDIA A10  | 56 minutes 55 seconds |                 $1.22 |
+
+The AWS container was observed running for about one hour. Job wall time was
+72 minutes 30 seconds, including two capacity failures before the successful
+launch in `us-east-2b`. The [Job status log](validation/aws-spot-status.log)
+records exit code 0 and a successful final checkpoint sync. Cleanup completed
+without an error, and the automatic checkpoint bucket was removed.
+
+## Spot recovery
+
+AnyCloud automatically mounts its Spot recovery bucket at `/mnt/checkpoint`.
+The runner detects that mount and saves model, optimizer, scheduler, accuracy
+history, and random-number state after every completed epoch. On restart it
+restores the latest compatible checkpoint and continues at the correct epoch,
+including a restart between models. Corrupt or incompatible state fails the
+Job. Periodic bucket sync can require repeating recent epochs.
+
+The [hosted recovery tests](https://github.com/anycloud-sh/perforated-resnet18-flowers102/actions/runs/37040879663)
+restore both real model formats after interruption and cover the transition
+between models. The AWS validation run saved 50 checkpoints per model and
+confirmed remote sync for both models; it had no Spot interruption. The bucket
+is for recovery within one Job and is removed after the Job finishes. Final
+accuracy remains in Job logs and the committed validation evidence.
 
 ## Build and release
 
@@ -54,35 +84,37 @@ checking the committed validation records.
 `main` or by manual dispatch. It builds `linux/amd64` from the pinned
 [`Dockerfile`](Dockerfile) and publishes
 `ghcr.io/anycloud-sh/perforated-resnet18-flowers102:candidate-<commit>` using
-the repository's `GITHUB_TOKEN` after image tests pass. The hosted build for the
-original Lambda release published
-`candidate-24c756da650de6f5105a378a10b6ed9e6f4003de`.
+the repository's `GITHUB_TOKEN` after image tests pass. The
+[validated hosted build](https://github.com/anycloud-sh/perforated-resnet18-flowers102/actions/runs/37040879663)
+published `candidate-4d5128838674fc2f1af6f9667e20fd50da7c7bf9` from
+[source commit `4d51288`](https://github.com/anycloud-sh/perforated-resnet18-flowers102/commit/4d5128838674fc2f1af6f9667e20fd50da7c7bf9).
 
 [Promote validated digest](.github/workflows/promote.yml) accepts the candidate
 digest after `validation/check_spot_promotion.py` verifies complete Lambda and
-AWS Spot runs. It adds `v0.2.0` to the tested manifest only after both pass.
-The older [`check_promotion.py`](validation/check_promotion.py) records the
-`v0.1.0` Lambda release gate; the [original promotion run](https://github.com/anycloud-sh/perforated-resnet18-flowers102/actions/runs/36921919359)
-passed; anonymous registry requests for the digest and `v0.1.0` both resolve
-to `sha256:b674943c8ea20e190fd66f77d054eccbb25131f20ad47a16e1d1c0bb6d9a38d6`.
+AWS Spot runs. The [v0.2.0 promotion run](https://github.com/anycloud-sh/perforated-resnet18-flowers102/actions/runs/37062534888)
+tags the existing tested manifest without rebuilding it. The
+[anonymous registry checks](validation/spot-release.json) confirm that
+`v0.2.0` resolves to the digest in the Run command above and `v0.1.0` is retained.
 
-## Spot candidate status
+The original `v0.1.0` Lambda release is retained at
+`sha256:b674943c8ea20e190fd66f77d054eccbb25131f20ad47a16e1d1c0bb6d9a38d6`,
+with its [validation record](validation/lambda-a10.json),
+[raw log](validation/lambda-a10.log), and
+[public pull repeat](validation/public-pull-repeat.md).
+The older [`check_promotion.py`](validation/check_promotion.py) records its
+historical release gate and [promotion run](https://github.com/anycloud-sh/perforated-resnet18-flowers102/actions/runs/36921919359).
 
-The tested, unpromoted Spot candidate is
-`sha256:732f4747857c0fe8744c6058159ddc642e14cbb974504506a9aa54932bcfea7f`
-from source commit `4d5128838674fc2f1af6f9667e20fd50da7c7bf9`. Its
-[hosted build](https://github.com/anycloud-sh/perforated-resnet18-flowers102/actions/runs/37040879663)
-passed recovery tests on both real model formats before publishing. The
-[complete Lambda validation](validation/lambda-spot-image.json) and
-[raw log](validation/lambda-spot-image.log) show 50 epochs for each model, a
-synchronized CUDA operation, and the same final measured accuracies: 82.50%
-and 86.18%. VM time was about 56 minutes 55 seconds ($1.22).
+## Run on Lambda
 
-On Spot, the runner detects the automatic `/mnt/checkpoint` mount and saves
-model, optimizer, scheduler, accuracy, and random-number state after every
-epoch. The AWS `g5.xlarge` run in `us-east-2` is waiting for a 4-vCPU G-family
-Spot quota increase. Until that complete run passes, `v0.1.0` and the Lambda
-command above remain the public release.
+The same validated image also runs on a Lambda A10:
+
+```bash
+anycloud job ghcr.io/anycloud-sh/perforated-resnet18-flowers102@sha256:732f4747857c0fe8744c6058159ddc642e14cbb974504506a9aa54932bcfea7f \
+  --credentials lambda --gpu-type a10 --gpus all --disk-size 100
+```
+
+Use your saved Lambda credential name if it differs from `lambda`. Without a
+checkpoint mount, the runner uses the unchanged upstream training path.
 
 ## Change the run
 
@@ -90,8 +122,9 @@ Pass the upstream script's training options after `--`. For example, this
 shorter run changes the epoch count and batch size, then prints the same table:
 
 ```bash
-anycloud job ghcr.io/anycloud-sh/perforated-resnet18-flowers102@sha256:b674943c8ea20e190fd66f77d054eccbb25131f20ad47a16e1d1c0bb6d9a38d6 \
-  --credentials lambda --gpu-type a10 --gpus all --disk-size 100 \
+anycloud job ghcr.io/anycloud-sh/perforated-resnet18-flowers102@sha256:732f4747857c0fe8744c6058159ddc642e14cbb974504506a9aa54932bcfea7f \
+  --credentials awstest --region us-east-2 --vm-type g5.xlarge \
+  --spot --gpus all --disk-size 100 \
   -- python runner.py --epochs 10 --batch-size 32
 ```
 
@@ -108,8 +141,9 @@ an ImageNet inference model.
   SHA-256 `114d3ed72896110ff229bd5a7c4ae8e7d048eb185ba1cdeb75cd76557d8674bc`.
 - Runtime: PyTorch 2.5.1 CUDA 12.4 image, `perforatedai==3.2.0`, and pinned
   direct Python dependencies in [`requirements.txt`](requirements.txt).
-- Hardware: one Lambda NVIDIA A10; the default command requires CUDA and
-  verifies a synchronized matrix multiplication before training.
+- Hardware: one AWS Spot NVIDIA A10G on `g5.xlarge`, plus Lambda NVIDIA A10
+  validation; the default command verifies a synchronized CUDA matrix
+  multiplication before training.
 - License: the upstream source and model card state Apache 2.0. See
   [`LICENSE`](LICENSE), [`LICENSE.upstream`](LICENSE.upstream), and [`NOTICE`](NOTICE).
 
