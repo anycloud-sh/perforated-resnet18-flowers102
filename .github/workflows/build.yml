@@ -21,17 +21,19 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and publish immutable candidate
+      - name: Build candidate locally
         uses: docker/build-push-action@v6
         with:
           context: .
           platforms: linux/amd64
-          push: true
+          load: true
           tags: ghcr.io/anycloud-sh/perforated-resnet18-flowers102:candidate-${{ github.sha }}
           provenance: false
       - name: Test checkpoint recovery in candidate
         run: |
-          docker run --rm --pull always \
+          docker run --rm \
             --mount "type=bind,src=$PWD/tests,dst=/app/tests,readonly" \
             ghcr.io/anycloud-sh/perforated-resnet18-flowers102:candidate-${{ github.sha }} \
             python -m unittest discover -s /app/tests -v
+      - name: Publish tested candidate
+        run: docker push ghcr.io/anycloud-sh/perforated-resnet18-flowers102:candidate-${{ github.sha }}

@@ -51,13 +51,14 @@ class SpotCheckpointTest(unittest.TestCase):
         return nn.Linear(4, upstream.NUM_CLASSES)
 
     def train_model(self, name):
+        builder = getattr(self, "real_builders", {}).get(name, self.model_builder)
         return spot_checkpoint.run_training(
             self.args,
             self.device,
             self.train_loader,
             self.test_loader,
             name,
-            self.model_builder,
+            builder,
         )
 
     def train_pair(self):
@@ -116,6 +117,42 @@ class SpotCheckpointTest(unittest.TestCase):
         self.path.write_bytes(b"not a checkpoint")
         with self.assertRaisesRegex(RuntimeError, "Cannot read"):
             self.train_model(spot_checkpoint.MODEL_NAMES[0])
+
+    def test_resume_real_pinned_models(self):
+        """Reload both actual network formats after an epoch-one interruption."""
+        from runner import build_pinned_perforated_model
+
+        self.args.epochs = 2
+        images = torch.rand(2, 3, 64, 64)
+        labels = torch.tensor([0, 1])
+        dataset = TensorDataset(images, labels)
+        self.train_loader = DataLoader(dataset, batch_size=2, shuffle=True)
+        self.test_loader = DataLoader(dataset, batch_size=2)
+        self.real_builders = {
+            spot_checkpoint.MODEL_NAMES[0]: upstream.build_torchvision_resnet18,
+            spot_checkpoint.MODEL_NAMES[1]: build_pinned_perforated_model,
+        }
+        previous_threads = torch.get_num_threads()
+        torch.set_num_threads(2)
+        try:
+            upstream.set_fixed_seed(self.args.seed)
+            expected = self.train_pair()
+            self.path.unlink()
+
+            upstream.set_fixed_seed(self.args.seed)
+            with self.interrupt_after(spot_checkpoint.MODEL_NAMES[0], 1):
+                with self.assertRaises(SimulatedInterruption):
+                    self.train_model(spot_checkpoint.MODEL_NAMES[0])
+            upstream.set_fixed_seed(self.args.seed)
+            baseline = self.train_model(spot_checkpoint.MODEL_NAMES[0])
+            with self.interrupt_after(spot_checkpoint.MODEL_NAMES[1], 1):
+                with self.assertRaises(SimulatedInterruption):
+                    self.train_model(spot_checkpoint.MODEL_NAMES[1])
+            upstream.set_fixed_seed(self.args.seed)
+            perforated = self.train_model(spot_checkpoint.MODEL_NAMES[1])
+            self.assertEqual([baseline, perforated], expected)
+        finally:
+            torch.set_num_threads(previous_threads)
 
 
 if __name__ == "__main__":

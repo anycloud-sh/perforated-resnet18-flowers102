@@ -33,6 +33,9 @@ jobs:
           DIGEST: ${{ inputs.digest }}
         run: |
           image=ghcr.io/anycloud-sh/perforated-resnet18-flowers102
+          revision="$(python3 -c 'import json; print(json.load(open("validation/lambda-spot-image.json"))["artifact_revision"])')"
+          candidate="$image:candidate-$revision"
+          test "$("$(go env GOPATH)/bin/crane" digest "$candidate")" = "$DIGEST"
           "$(go env GOPATH)/bin/crane" tag "$image@$DIGEST" v0.2.0
           actual="$("$(go env GOPATH)/bin/crane" digest "$image:v0.2.0")"
           test "$actual" = "$DIGEST"

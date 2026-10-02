@@ -54,13 +54,15 @@ candidate from `main` and promotes a digest only after checking the committed
 `main` or by manual dispatch. It builds `linux/amd64` from the pinned
 [`Dockerfile`](Dockerfile) and publishes
 `ghcr.io/anycloud-sh/perforated-resnet18-flowers102:candidate-<commit>` using
-the repository's `GITHUB_TOKEN`. The hosted build for this release published
+the repository's `GITHUB_TOKEN` after image tests pass. The hosted build for the
+original Lambda release published
 `candidate-24c756da650de6f5105a378a10b6ed9e6f4003de`.
 
 [Promote validated digest](.github/workflows/promote.yml) accepts the candidate
-digest after `validation/check_promotion.py` verifies the committed Lambda
-result. It adds `v0.1.0` to the existing manifest and checks that the tag
-resolves to the validated digest. The [promotion run](https://github.com/anycloud-sh/perforated-resnet18-flowers102/actions/runs/36921919359)
+digest after `validation/check_spot_promotion.py` verifies complete Lambda and
+AWS Spot runs. It adds `v0.2.0` to the tested manifest only after both pass.
+The older [`check_promotion.py`](validation/check_promotion.py) records the
+`v0.1.0` Lambda release gate; the [original promotion run](https://github.com/anycloud-sh/perforated-resnet18-flowers102/actions/runs/36921919359)
 passed; anonymous registry requests for the digest and `v0.1.0` both resolve
 to `sha256:b674943c8ea20e190fd66f77d054eccbb25131f20ad47a16e1d1c0bb6d9a38d6`.
 

@@ -10,6 +10,7 @@ from pathlib import Path
 
 digest = os.environ["DIGEST"]
 assert re.fullmatch(r"sha256:[0-9a-f]{64}", digest)
+artifact_revision = None
 
 for prefix, provider in (("lambda-spot-image", "Lambda"), ("aws-spot", "AWS")):
     result = json.loads(Path(f"validation/{prefix}.json").read_text())
@@ -20,8 +21,17 @@ for prefix, provider in (("lambda-spot-image", "Lambda"), ("aws-spot", "AWS")):
     assert result["epoch_count"] == 50
     assert result["source_revision"] == "9d317e629428d73d92b88dc501f0dce3b1017c86"
     assert result["model_revision"] == "8a59acfc5285e72257e8d322da51bf486c3ce060"
+    assert result["model_sha256"] == "114d3ed72896110ff229bd5a7c4ae8e7d048eb185ba1cdeb75cd76557d8674bc"
+    assert re.fullmatch(r"[0-9a-f]{40}", result["artifact_revision"])
+    assert result["candidate_tag"] == f"candidate-{result['artifact_revision']}"
+    if artifact_revision is None:
+        artifact_revision = result["artifact_revision"]
+    assert result["artifact_revision"] == artifact_revision
     assert result["log_sha256"] == hashlib.sha256(log).hexdigest()
     assert result["anonymous_pull"] is True
+    assert result["repository_public"] is True
+    assert result["package_linked"] is True
+    assert result["anonymous_manifest_digest"] == digest
     assert b"CUDA_PROOF device=" in log and b"synchronized=true" in log
     assert b"===== Final Comparison =====" in log
     assert b"[0/1020 (0%)]" in log and b"/6149" in log
