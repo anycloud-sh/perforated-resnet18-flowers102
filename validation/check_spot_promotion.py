@@ -54,7 +54,7 @@ for prefix, provider in (("lambda-spot-image", "Lambda"), ("aws-spot", "AWS")):
         assert result["region"] == "us-east-2"
         assert result["vm_type"] == "g5.xlarge"
         assert result["spot"] is True
-        assert result["credential_name"] == "anycloudshaws"
+        assert result["credential_name"] == "awstest"
         assert b"CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=50" in log
         assert b"CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=50" in log
 
