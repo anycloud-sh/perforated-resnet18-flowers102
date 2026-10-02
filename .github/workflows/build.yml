@@ -3,7 +3,7 @@ name: Build candidate image
 on:
   push:
     branches: [main]
-    paths-ignore: ["README.md", "validation/**"]
+    paths-ignore: ['README.md', 'validation/**']
   workflow_dispatch:
 
 permissions:
@@ -29,3 +29,9 @@ jobs:
           push: true
           tags: ghcr.io/anycloud-sh/perforated-resnet18-flowers102:candidate-${{ github.sha }}
           provenance: false
+      - name: Test checkpoint recovery in candidate
+        run: |
+          docker run --rm --pull always \
+            --mount "type=bind,src=$PWD/tests,dst=/app/tests,readonly" \
+            ghcr.io/anycloud-sh/perforated-resnet18-flowers102:candidate-${{ github.sha }} \
+            python -m unittest discover -s /app/tests -v

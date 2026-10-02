@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check committed Lambda validation
+      - name: Check committed Lambda and AWS Spot validation
         env:
           DIGEST: ${{ inputs.digest }}
-        run: python3 validation/check_promotion.py
+        run: python3 validation/check_spot_promotion.py
       - uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -33,6 +33,6 @@ jobs:
           DIGEST: ${{ inputs.digest }}
         run: |
           image=ghcr.io/anycloud-sh/perforated-resnet18-flowers102
-          "$(go env GOPATH)/bin/crane" tag "$image@$DIGEST" v0.1.0
-          actual="$("$(go env GOPATH)/bin/crane" digest "$image:v0.1.0")"
+          "$(go env GOPATH)/bin/crane" tag "$image@$DIGEST" v0.2.0
+          actual="$("$(go env GOPATH)/bin/crane" digest "$image:v0.2.0")"
           test "$actual" = "$DIGEST"

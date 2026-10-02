@@ -3,6 +3,7 @@
 import hashlib
 import json
 import math
+import os
 
 import torch
 import torch.nn as nn
@@ -68,4 +69,8 @@ if __name__ == "__main__":
     verify_cuda()
     print(f"MODEL_REVISION={MODEL_REVISION} MODEL_SHA256={MODEL_SHA256}", flush=True)
     upstream.build_perforated_cascor_resnet18 = build_pinned_perforated_model
+    if os.environ.get("SPOT_RESUME") == "1":
+        from spot_checkpoint import run_training
+
+        upstream.run_training = run_training
     upstream.main()

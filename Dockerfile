@@ -8,6 +8,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN python -m pip install --no-cache-dir -r requirements.txt
 COPY runner.py .
+COPY spot_checkpoint.py .
 COPY upstream/ ./upstream/
 
 ENV PYTHONUNBUFFERED=1
