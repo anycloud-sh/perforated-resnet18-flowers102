@@ -1,0 +1,61 @@
+
+✅  completed
+
+  Image              anycloud-sh/perforated-resnet18-flowers102@sha256:732f4747857c0fe8744c6058159ddc642e14cbb974504506a9aa54932bcfea7f
+  Cloud              AWS / us-east-2
+  VM                 g5.xlarge
+  Spot               yes
+  Disk Size          100 GB
+  Session            codex:01a0f8
+  Checkpoint Bucket  perforate-1790969182549-tylb
+  Duration           1h 12m (ended 3m ago)
+  Billable           1h 6m (3m awaiting release)
+  Cost               $0.57 (est. @ $0.51/hr)
+
+Docker command:
+docker run -d --pull never --name perforate-1790969182549-tylb --label 'sh.anycloud.managed=true' --label 'sh.anycloud.role=workload' --label 'sh.anycloud.deployment-id=perforate-1790969182549-tylb' --label 'sh.anycloud.user-id=depombo' -v /mnt/checkpoint:/mnt/checkpoint --restart no --gpus 'all' --env-file /run/anycloud-secrets/env -e 'GITHUB_USER=depombo' -e 'WORKLOAD_ID=perforate-1790969182549-tylb' -e 'DEPLOYMENT_ID=perforate-1790969182549-tylb' -e 'PYTHONUNBUFFERED=1' 'ghcr.io/anycloud-sh/perforated-resnet18-flowers102@sha256:732f4747857c0fe8744c6058159ddc642e14cbb974504506a9aa54932bcfea7f'
+
+VMs:
+  18.117.247.38 (terminated)
+    ✗ container    exited
+
+[19:26:23] provisioning (us-east-2)
+[19:26:23] provisioning
+  │ active-step-replay
+[19:28:01] retrying
+  │ There is no Spot capacity available that matches your request.
+[19:29:30] queued
+[19:29:33] provisioning (us-east-2)
+[19:29:33] provisioning
+  │ active-step-replay
+[19:31:12] retrying
+  │ There is no Spot capacity available that matches your request.
+[19:35:11] queued
+[19:35:13] provisioning (us-east-2)
+[19:35:13] provisioning
+  │ active-step-replay
+[19:35:31] initializing
+[19:36:49] downloading [pull: Docker fallback, 1m]
+  │ transfer fallback: transfer failed
+  │ containerd 2.3.6, snapshotter overlayfs
+[19:38:40] syncing
+[19:38:42] starting
+[19:38:46] running
+[20:38:51] finalizing [exit: 0]
+  │ Container logs:
+  │ Train Epoch: 43 [640/1020 (62%)]	Loss: 0.266470
+  │ Test set: Average loss: 0.7003, Accuracy: 5304/6149 (86%)
+  │ CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=43
+  │ ...
+  │ 48      82.40      -0.10      86.19      +0.05
+  │ 49      82.58      +0.18      86.36      +0.16
+  │ 50      82.50      -0.08      86.18      -0.18
+[20:38:52] completed [exit: 0] [final sync: succeeded, attempt: 1]
+  │ Container logs:
+  │ Train Epoch: 43 [640/1020 (62%)]	Loss: 0.266470
+  │ Test set: Average loss: 0.7003, Accuracy: 5304/6149 (86%)
+  │ CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=43
+  │ ...
+  │ 48      82.40      -0.10      86.19      +0.05
+  │ 49      82.58      +0.18      86.36      +0.16
+  │ 50      82.50      -0.08      86.18      -0.18

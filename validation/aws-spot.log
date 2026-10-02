@@ -1,0 +1,728 @@
+Building dendrites without Perforated Backpropagation
+CUDA_PROOF device='NVIDIA A10G' allocated_bytes=8716288 matmul_checksum=127.112488 synchronized=true
+MODEL_REVISION=8a59acfc5285e72257e8d322da51bf486c3ce060 MODEL_SHA256=114d3ed72896110ff229bd5a7c4ae8e7d048eb185ba1cdeb75cd76557d8674bc
+Downloading https://thor.robots.ox.ac.uk/flowers/102/102flowers.tgz to ../data/flowers-102/102flowers.tgz
+Extracting ../data/flowers-102/102flowers.tgz to ../data/flowers-102
+Downloading https://thor.robots.ox.ac.uk/flowers/102/imagelabels.mat to ../data/flowers-102/imagelabels.mat
+Downloading https://thor.robots.ox.ac.uk/flowers/102/setid.mat to ../data/flowers-102/setid.mat
+
+===== Running model: torchvision/resnet-18 =====
+Train Epoch: 1 [0/1020 (0%)]	Loss: 5.007558
+Train Epoch: 1 [640/1020 (62%)]	Loss: 4.783544
+
+Test set: Average loss: 4.6311, Accuracy: 135/6149 (2%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=1
+Train Epoch: 2 [0/1020 (0%)]	Loss: 4.705076
+Train Epoch: 2 [640/1020 (62%)]	Loss: 4.601677
+
+Test set: Average loss: 4.3862, Accuracy: 372/6149 (6%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=2
+Train Epoch: 3 [0/1020 (0%)]	Loss: 4.225828
+Train Epoch: 3 [640/1020 (62%)]	Loss: 4.212519
+
+Test set: Average loss: 4.1533, Accuracy: 927/6149 (15%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=3
+Train Epoch: 4 [0/1020 (0%)]	Loss: 4.151263
+Train Epoch: 4 [640/1020 (62%)]	Loss: 3.958899
+
+Test set: Average loss: 3.9009, Accuracy: 1679/6149 (27%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=4
+Train Epoch: 5 [0/1020 (0%)]	Loss: 4.001117
+Train Epoch: 5 [640/1020 (62%)]	Loss: 3.657616
+
+Test set: Average loss: 3.6467, Accuracy: 2264/6149 (37%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=5
+Train Epoch: 6 [0/1020 (0%)]	Loss: 3.537033
+Train Epoch: 6 [640/1020 (62%)]	Loss: 3.479626
+  0%|          | 0.00/345M [00:00<?, ?B/s]  0%|          | 98.3k/345M [00:00<10:51, 529kB/s]  0%|          | 426k/345M [00:00<03:49, 1.50MB/s]  0%|          | 918k/345M [00:00<02:28, 2.32MB/s]  1%|          | 3.41M/345M [00:00<00:37, 9.10MB/s]  2%|▏         | 6.85M/345M [00:00<00:21, 15.4MB/s]  3%|▎         | 10.9M/345M [00:00<00:16, 19.7MB/s]  4%|▍         | 15.1M/345M [00:00<00:12, 25.6MB/s]  6%|▌         | 19.4M/345M [00:01<00:10, 30.3MB/s]  7%|▋         | 23.5M/345M [00:01<00:09, 33.3MB/s]  8%|▊         | 27.6M/345M [00:01<00:08, 35.5MB/s]  9%|▉         | 31.9M/345M [00:01<00:08, 37.8MB/s] 10%|█         | 36.2M/345M [00:01<00:07, 39.2MB/s] 12%|█▏        | 40.6M/345M [00:01<00:07, 40.5MB/s] 13%|█▎        | 44.7M/345M [00:01<00:07, 40.4MB/s] 14%|█▍        | 49.0M/345M [00:01<00:07, 41.3MB/s] 16%|█▌        | 53.7M/345M [00:01<00:06, 43.0MB/s] 17%|█▋        | 58.1M/345M [00:01<00:06, 43.0MB/s] 18%|█▊        | 62.4M/345M [00:02<00:06, 43.2MB/s] 19%|█▉        | 67.1M/345M [00:02<00:06, 44.3MB/s] 21%|██        | 71.6M/345M [00:02<00:07, 35.4MB/s] 22%|██▏       | 75.9M/345M [00:02<00:07, 37.4MB/s] 23%|██▎       | 80.2M/345M [00:02<00:06, 38.8MB/s] 24%|██▍       | 84.3M/345M [00:02<00:06, 39.2MB/s] 26%|██▌       | 88.3M/345M [00:02<00:06, 39.6MB/s] 27%|██▋       | 93.0M/345M [00:02<00:06, 41.5MB/s] 28%|██▊       | 97.5M/345M [00:02<00:05, 42.5MB/s] 30%|██▉       | 102M/345M [00:03<00:05, 42.7MB/s]  31%|███       | 106M/345M [00:03<00:05, 42.2MB/s] 32%|███▏      | 111M/345M [00:03<00:05, 44.7MB/s] 34%|███▎      | 116M/345M [00:03<00:06, 35.7MB/s] 35%|███▍      | 120M/345M [00:03<00:05, 37.7MB/s] 36%|███▌      | 124M/345M [00:03<00:05, 39.4MB/s] 37%|███▋      | 129M/345M [00:03<00:05, 39.7MB/s] 39%|███▊      | 133M/345M [00:03<00:05, 40.2MB/s] 40%|███▉      | 137M/345M [00:03<00:05, 41.2MB/s] 41%|████      | 142M/345M [00:04<00:04, 43.6MB/s] 43%|████▎     | 147M/345M [00:04<00:04, 44.2MB/s] 44%|████▍     | 151M/345M [00:04<00:04, 44.4MB/s] 45%|████▌     | 156M/345M [00:04<00:04, 43.9MB/s] 46%|████▋     | 160M/345M [00:04<00:05, 35.3MB/s] 48%|████▊     | 165M/345M [00:04<00:04, 37.7MB/s] 49%|████▉     | 169M/345M [00:04<00:04, 39.2MB/s] 50%|█████     | 173M/345M [00:04<00:04, 40.8MB/s] 52%|█████▏    | 178M/345M [00:04<00:04, 40.8MB/s] 53%|█████▎    | 183M/345M [00:05<00:03, 43.5MB/s] 54%|█████▍    | 187M/345M [00:05<00:03, 43.6MB/s] 56%|█████▌    | 192M/345M [00:05<00:03, 44.2MB/s] 57%|█████▋    | 196M/345M [00:05<00:03, 44.6MB/s] 58%|█████▊    | 201M/345M [00:05<00:04, 35.6MB/s] 59%|█████▉    | 205M/345M [00:05<00:03, 36.9MB/s] 61%|██████    | 209M/345M [00:05<00:03, 38.9MB/s] 62%|██████▏   | 214M/345M [00:05<00:03, 39.9MB/s] 63%|██████▎   | 218M/345M [00:05<00:03, 40.4MB/s] 64%|██████▍   | 222M/345M [00:06<00:03, 40.6MB/s] 66%|██████▌   | 226M/345M [00:06<00:02, 40.8MB/s] 67%|██████▋   | 231M/345M [00:06<00:02, 42.3MB/s] 68%|██████▊   | 235M/345M [00:06<00:02, 42.8MB/s] 69%|██████▉   | 239M/345M [00:06<00:02, 42.9MB/s] 71%|███████   | 244M/345M [00:06<00:02, 44.8MB/s] 72%|███████▏  | 249M/345M [00:06<00:02, 35.5MB/s] 73%|███████▎  | 253M/345M [00:06<00:02, 37.0MB/s] 75%|███████▍  | 257M/345M [00:06<00:02, 38.6MB/s] 76%|███████▌  | 262M/345M [00:07<00:02, 40.2MB/s] 77%|███████▋  | 266M/345M [00:07<00:01, 41.0MB/s] 78%|███████▊  | 270M/345M [00:07<00:01, 40.8MB/s] 80%|███████▉  | 275M/345M [00:07<00:01, 42.7MB/s] 81%|████████  | 280M/345M [00:07<00:01, 44.1MB/s] 82%|████████▏ | 284M/345M [00:07<00:01, 35.7MB/s] 84%|████████▎ | 289M/345M [00:07<00:01, 37.3MB/s] 85%|████████▍ | 293M/345M [00:07<00:01, 38.8MB/s] 86%|████████▌ | 297M/345M [00:07<00:01, 39.4MB/s] 87%|████████▋ | 301M/345M [00:07<00:01, 41.0MB/s] 89%|████████▊ | 306M/345M [00:08<00:00, 41.7MB/s] 90%|████████▉ | 310M/345M [00:08<00:00, 42.4MB/s] 91%|█████████ | 315M/345M [00:08<00:00, 42.5MB/s] 92%|█████████▏| 319M/345M [00:08<00:00, 42.4MB/s] 94%|█████████▍| 324M/345M [00:08<00:00, 45.1MB/s] 95%|█████████▌| 329M/345M [00:08<00:00, 45.0MB/s] 97%|█████████▋| 333M/345M [00:08<00:00, 36.0MB/s] 98%|█████████▊| 337M/345M [00:08<00:00, 37.3MB/s] 99%|█████████▉| 341M/345M [00:08<00:00, 37.8MB/s]100%|██████████| 345M/345M [00:09<00:00, 38.0MB/s]
+  0%|          | 0.00/502 [00:00<?, ?B/s]100%|██████████| 502/502 [00:00<00:00, 534kB/s]
+  0%|          | 0.00/15.0k [00:00<?, ?B/s]100%|██████████| 15.0k/15.0k [00:00<00:00, 16.3MB/s]
+Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth
+  0%|          | 0.00/44.7M [00:00<?, ?B/s] 86%|████████▌ | 38.2M/44.7M [00:00<00:00, 401MB/s]100%|██████████| 44.7M/44.7M [00:00<00:00, 394MB/s]
+
+Test set: Average loss: 3.3962, Accuracy: 2721/6149 (44%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=6
+Train Epoch: 7 [0/1020 (0%)]	Loss: 3.342998
+Train Epoch: 7 [640/1020 (62%)]	Loss: 3.184569
+
+Test set: Average loss: 3.1581, Accuracy: 3061/6149 (50%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=7
+Train Epoch: 8 [0/1020 (0%)]	Loss: 3.168927
+Train Epoch: 8 [640/1020 (62%)]	Loss: 3.150564
+
+Test set: Average loss: 2.9200, Accuracy: 3358/6149 (55%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=8
+Train Epoch: 9 [0/1020 (0%)]	Loss: 2.959189
+Train Epoch: 9 [640/1020 (62%)]	Loss: 2.868697
+
+Test set: Average loss: 2.7114, Accuracy: 3678/6149 (60%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=9
+Train Epoch: 10 [0/1020 (0%)]	Loss: 2.784780
+Train Epoch: 10 [640/1020 (62%)]	Loss: 2.640907
+
+Test set: Average loss: 2.5439, Accuracy: 3801/6149 (62%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=10
+Train Epoch: 11 [0/1020 (0%)]	Loss: 2.712255
+Train Epoch: 11 [640/1020 (62%)]	Loss: 2.308746
+
+Test set: Average loss: 2.3701, Accuracy: 3996/6149 (65%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=11
+Train Epoch: 12 [0/1020 (0%)]	Loss: 2.181788
+Train Epoch: 12 [640/1020 (62%)]	Loss: 2.379830
+
+Test set: Average loss: 2.2180, Accuracy: 4129/6149 (67%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=12
+Train Epoch: 13 [0/1020 (0%)]	Loss: 1.926187
+Train Epoch: 13 [640/1020 (62%)]	Loss: 2.101016
+
+Test set: Average loss: 2.1010, Accuracy: 4247/6149 (69%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=13
+Train Epoch: 14 [0/1020 (0%)]	Loss: 2.214340
+Train Epoch: 14 [640/1020 (62%)]	Loss: 1.842794
+
+Test set: Average loss: 1.9969, Accuracy: 4337/6149 (71%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=14
+Train Epoch: 15 [0/1020 (0%)]	Loss: 2.025702
+Train Epoch: 15 [640/1020 (62%)]	Loss: 1.802449
+
+Test set: Average loss: 1.8719, Accuracy: 4439/6149 (72%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=15
+Train Epoch: 16 [0/1020 (0%)]	Loss: 1.743217
+Train Epoch: 16 [640/1020 (62%)]	Loss: 1.854234
+
+Test set: Average loss: 1.7818, Accuracy: 4515/6149 (73%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=16
+Train Epoch: 17 [0/1020 (0%)]	Loss: 1.625067
+Train Epoch: 17 [640/1020 (62%)]	Loss: 1.722633
+
+Test set: Average loss: 1.7031, Accuracy: 4560/6149 (74%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=17
+Train Epoch: 18 [0/1020 (0%)]	Loss: 1.581295
+Train Epoch: 18 [640/1020 (62%)]	Loss: 1.588762
+
+Test set: Average loss: 1.6359, Accuracy: 4631/6149 (75%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=18
+Train Epoch: 19 [0/1020 (0%)]	Loss: 1.406343
+Train Epoch: 19 [640/1020 (62%)]	Loss: 1.379055
+
+Test set: Average loss: 1.5665, Accuracy: 4710/6149 (77%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=19
+Train Epoch: 20 [0/1020 (0%)]	Loss: 1.289854
+Train Epoch: 20 [640/1020 (62%)]	Loss: 1.468915
+
+Test set: Average loss: 1.5230, Accuracy: 4749/6149 (77%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=20
+Train Epoch: 21 [0/1020 (0%)]	Loss: 1.536515
+Train Epoch: 21 [640/1020 (62%)]	Loss: 1.456001
+
+Test set: Average loss: 1.4687, Accuracy: 4777/6149 (78%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=21
+Train Epoch: 22 [0/1020 (0%)]	Loss: 1.287506
+Train Epoch: 22 [640/1020 (62%)]	Loss: 1.403374
+
+Test set: Average loss: 1.4167, Accuracy: 4817/6149 (78%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=22
+Train Epoch: 23 [0/1020 (0%)]	Loss: 1.146760
+Train Epoch: 23 [640/1020 (62%)]	Loss: 1.352692
+
+Test set: Average loss: 1.3781, Accuracy: 4857/6149 (79%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=23
+Train Epoch: 24 [0/1020 (0%)]	Loss: 1.157633
+Train Epoch: 24 [640/1020 (62%)]	Loss: 1.161072
+
+Test set: Average loss: 1.3371, Accuracy: 4884/6149 (79%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=24
+Train Epoch: 25 [0/1020 (0%)]	Loss: 1.119584
+Train Epoch: 25 [640/1020 (62%)]	Loss: 1.004102
+
+Test set: Average loss: 1.3199, Accuracy: 4896/6149 (80%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=25
+Train Epoch: 26 [0/1020 (0%)]	Loss: 1.096006
+Train Epoch: 26 [640/1020 (62%)]	Loss: 1.090131
+
+Test set: Average loss: 1.2870, Accuracy: 4909/6149 (80%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=26
+Train Epoch: 27 [0/1020 (0%)]	Loss: 1.081496
+Train Epoch: 27 [640/1020 (62%)]	Loss: 1.203642
+
+Test set: Average loss: 1.2529, Accuracy: 4928/6149 (80%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=27
+Train Epoch: 28 [0/1020 (0%)]	Loss: 0.971677
+Train Epoch: 28 [640/1020 (62%)]	Loss: 1.122481
+
+Test set: Average loss: 1.2353, Accuracy: 4954/6149 (81%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=28
+Train Epoch: 29 [0/1020 (0%)]	Loss: 1.077811
+Train Epoch: 29 [640/1020 (62%)]	Loss: 1.049299
+
+Test set: Average loss: 1.2121, Accuracy: 4978/6149 (81%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=29
+Train Epoch: 30 [0/1020 (0%)]	Loss: 1.014839
+Train Epoch: 30 [640/1020 (62%)]	Loss: 1.001517
+
+Test set: Average loss: 1.2029, Accuracy: 4985/6149 (81%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=30
+Train Epoch: 31 [0/1020 (0%)]	Loss: 1.200093
+Train Epoch: 31 [640/1020 (62%)]	Loss: 0.993340
+
+Test set: Average loss: 1.1713, Accuracy: 5015/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=31
+Train Epoch: 32 [0/1020 (0%)]	Loss: 1.038415
+Train Epoch: 32 [640/1020 (62%)]	Loss: 1.097256
+
+Test set: Average loss: 1.1609, Accuracy: 5031/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=32
+Train Epoch: 33 [0/1020 (0%)]	Loss: 1.055554
+Train Epoch: 33 [640/1020 (62%)]	Loss: 0.936106
+
+Test set: Average loss: 1.1507, Accuracy: 5031/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=33
+Train Epoch: 34 [0/1020 (0%)]	Loss: 0.953805
+Train Epoch: 34 [640/1020 (62%)]	Loss: 0.994708
+
+Test set: Average loss: 1.1425, Accuracy: 5041/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=34
+Train Epoch: 35 [0/1020 (0%)]	Loss: 1.129285
+Train Epoch: 35 [640/1020 (62%)]	Loss: 0.984836
+
+Test set: Average loss: 1.1331, Accuracy: 5045/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=35
+Train Epoch: 36 [0/1020 (0%)]	Loss: 0.824735
+Train Epoch: 36 [640/1020 (62%)]	Loss: 1.003942
+
+Test set: Average loss: 1.1276, Accuracy: 5042/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=36
+Train Epoch: 37 [0/1020 (0%)]	Loss: 0.820907
+Train Epoch: 37 [640/1020 (62%)]	Loss: 0.859345
+
+Test set: Average loss: 1.1168, Accuracy: 5063/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=37
+Train Epoch: 38 [0/1020 (0%)]	Loss: 0.787480
+Train Epoch: 38 [640/1020 (62%)]	Loss: 0.795606
+
+Test set: Average loss: 1.1116, Accuracy: 5063/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=38
+Train Epoch: 39 [0/1020 (0%)]	Loss: 0.896971
+Train Epoch: 39 [640/1020 (62%)]	Loss: 1.067416
+
+Test set: Average loss: 1.1011, Accuracy: 5070/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=39
+Train Epoch: 40 [0/1020 (0%)]	Loss: 1.008661
+Train Epoch: 40 [640/1020 (62%)]	Loss: 1.093487
+
+Test set: Average loss: 1.1009, Accuracy: 5061/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=40
+Train Epoch: 41 [0/1020 (0%)]	Loss: 0.896346
+Train Epoch: 41 [640/1020 (62%)]	Loss: 1.101836
+
+Test set: Average loss: 1.0939, Accuracy: 5072/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=41
+Train Epoch: 42 [0/1020 (0%)]	Loss: 0.779912
+Train Epoch: 42 [640/1020 (62%)]	Loss: 0.988952
+
+Test set: Average loss: 1.0990, Accuracy: 5057/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=42
+Train Epoch: 43 [0/1020 (0%)]	Loss: 0.907552
+Train Epoch: 43 [640/1020 (62%)]	Loss: 0.784418
+
+Test set: Average loss: 1.1004, Accuracy: 5072/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=43
+Train Epoch: 44 [0/1020 (0%)]	Loss: 1.054491
+Train Epoch: 44 [640/1020 (62%)]	Loss: 0.971848
+
+Test set: Average loss: 1.0945, Accuracy: 5060/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=44
+Train Epoch: 45 [0/1020 (0%)]	Loss: 0.926631
+Train Epoch: 45 [640/1020 (62%)]	Loss: 1.009534
+
+Test set: Average loss: 1.0940, Accuracy: 5070/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=45
+Train Epoch: 46 [0/1020 (0%)]	Loss: 0.852001
+Train Epoch: 46 [640/1020 (62%)]	Loss: 0.835927
+
+Test set: Average loss: 1.0894, Accuracy: 5065/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=46
+Train Epoch: 47 [0/1020 (0%)]	Loss: 1.069343
+Train Epoch: 47 [640/1020 (62%)]	Loss: 1.018371
+
+Test set: Average loss: 1.0889, Accuracy: 5073/6149 (83%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=47
+Train Epoch: 48 [0/1020 (0%)]	Loss: 1.125220
+Train Epoch: 48 [640/1020 (62%)]	Loss: 0.851067
+
+Test set: Average loss: 1.0826, Accuracy: 5067/6149 (82%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=48
+Train Epoch: 49 [0/1020 (0%)]	Loss: 0.834115
+Train Epoch: 49 [640/1020 (62%)]	Loss: 0.750350
+
+Test set: Average loss: 1.0837, Accuracy: 5078/6149 (83%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=49
+Train Epoch: 50 [0/1020 (0%)]	Loss: 0.919459
+Train Epoch: 50 [640/1020 (62%)]	Loss: 1.000135
+
+Test set: Average loss: 1.0914, Accuracy: 5073/6149 (83%)
+
+CHECKPOINT_SAVE model=torchvision/resnet-18 epoch=50
+
+===== Running model: perforated-ai/resnet-18-perforated-cascor =====
+Variable 'candidate_grad_clipping' does not exist.  Ignoring set attempt.
+Variable 'candidate_grad_clipping' does not exist.  Ignoring set attempt.
+Variable 'candidate_graph_mode' does not exist.  Ignoring set attempt.
+Variable 'candidate_graph_mode' does not exist.  Ignoring set attempt.
+Variable 'cap_at_n' does not exist.  Ignoring set attempt.
+Variable 'cap_at_n' does not exist.  Ignoring set attempt.
+Variable 'correlations_by_mean' does not exist.  Ignoring set attempt.
+Variable 'correlations_by_mean' does not exist.  Ignoring set attempt.
+Variable 'count_training_params' does not exist.  Ignoring set attempt.
+Variable 'count_training_params' does not exist.  Ignoring set attempt.
+Variable 'debugging_backwards_nan' does not exist.  Ignoring set attempt.
+Variable 'debugging_backwards_nan' does not exist.  Ignoring set attempt.
+Variable 'debugging_memory_leak' does not exist.  Ignoring set attempt.
+Variable 'debugging_memory_leak' does not exist.  Ignoring set attempt.
+Variable 'default_random_pai_to_candidates' does not exist.  Ignoring set attempt.
+Variable 'default_random_pai_to_candidates' does not exist.  Ignoring set attempt.
+Variable 'dendrite_graph_mode' does not exist.  Ignoring set attempt.
+Variable 'dendrite_graph_mode' does not exist.  Ignoring set attempt.
+Variable 'dendrite_learn_mode' does not exist.  Ignoring set attempt.
+Variable 'dendrite_learn_mode' does not exist.  Ignoring set attempt.
+Variable 'dendrite_update_mode' does not exist.  Ignoring set attempt.
+Variable 'dendrite_update_mode' does not exist.  Ignoring set attempt.
+Variable 'doing_mean_best' does not exist.  Ignoring set attempt.
+Variable 'doing_mean_best' does not exist.  Ignoring set attempt.
+Variable 'doing_thing' does not exist.  Ignoring set attempt.
+Variable 'doing_thing' does not exist.  Ignoring set attempt.
+Variable 'dpp_verbose' does not exist.  Ignoring set attempt.
+Variable 'dpp_verbose' does not exist.  Ignoring set attempt.
+Variable 'grad_sum_first' does not exist.  Ignoring set attempt.
+Variable 'grad_sum_first' does not exist.  Ignoring set attempt.
+Variable 'graphing_current_scores' does not exist.  Ignoring set attempt.
+Variable 'graphing_current_scores' does not exist.  Ignoring set attempt.
+Variable 'initial_correlation_batches' does not exist.  Ignoring set attempt.
+Variable 'initial_correlation_batches' does not exist.  Ignoring set attempt.
+Variable 'no_backward_workaround' does not exist.  Ignoring set attempt.
+Variable 'no_backward_workaround' does not exist.  Ignoring set attempt.
+Variable 'normalized_covariance' does not exist.  Ignoring set attempt.
+Variable 'normalized_covariance' does not exist.  Ignoring set attempt.
+Variable 'p_epochs_to_switch' does not exist.  Ignoring set attempt.
+Variable 'p_epochs_to_switch' does not exist.  Ignoring set attempt.
+Variable 'pai_email' does not exist.  Ignoring set attempt.
+Variable 'pai_email' does not exist.  Ignoring set attempt.
+Variable 'pai_improvement_threshold' does not exist.  Ignoring set attempt.
+Variable 'pai_improvement_threshold' does not exist.  Ignoring set attempt.
+Variable 'pai_improvement_threshold_raw' does not exist.  Ignoring set attempt.
+Variable 'pai_improvement_threshold_raw' does not exist.  Ignoring set attempt.
+Variable 'pai_token' does not exist.  Ignoring set attempt.
+Variable 'pai_token' does not exist.  Ignoring set attempt.
+Variable 'running_average_pb' does not exist.  Ignoring set attempt.
+Variable 'running_average_pb' does not exist.  Ignoring set attempt.
+[PAI Config] Saved 67 variables → /app/PAI/PAI_config.json
+[PAI Config] Saved 67 variables → /app/PAI/PAI_config.json
+[PAI Config] Saved 67 variables → /app/PAI/PAI_config.json
+[PAI Config] Saved 67 variables → /app/PAI/PAI_config.json
+Variable 'variable_p' does not exist.  Ignoring set attempt.
+Variable 'variable_p' does not exist.  Ignoring set attempt.
+[PAI Config] Saved 67 variables → /app/PAI/PAI_config.json
+[PAI Config] Saved 67 variables → /app/PAI/PAI_config.json
+[PAI Config] Saved 67 variables → /app/PAI/PAI_config.json
+Train Epoch: 1 [0/1020 (0%)]	Loss: 5.025036
+Train Epoch: 1 [640/1020 (62%)]	Loss: 4.873984
+
+Test set: Average loss: 4.5735, Accuracy: 224/6149 (4%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=1
+Train Epoch: 2 [0/1020 (0%)]	Loss: 4.428615
+Train Epoch: 2 [640/1020 (62%)]	Loss: 4.327208
+
+Test set: Average loss: 4.1717, Accuracy: 670/6149 (11%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=2
+Train Epoch: 3 [0/1020 (0%)]	Loss: 4.095700
+Train Epoch: 3 [640/1020 (62%)]	Loss: 3.804527
+
+Test set: Average loss: 3.7276, Accuracy: 1380/6149 (22%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=3
+Train Epoch: 4 [0/1020 (0%)]	Loss: 3.741665
+Train Epoch: 4 [640/1020 (62%)]	Loss: 3.338354
+
+Test set: Average loss: 3.2702, Accuracy: 2306/6149 (38%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=4
+Train Epoch: 5 [0/1020 (0%)]	Loss: 3.046292
+Train Epoch: 5 [640/1020 (62%)]	Loss: 2.952717
+
+Test set: Average loss: 2.8739, Accuracy: 2909/6149 (47%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=5
+Train Epoch: 6 [0/1020 (0%)]	Loss: 3.007799
+Train Epoch: 6 [640/1020 (62%)]	Loss: 2.788738
+
+Test set: Average loss: 2.5173, Accuracy: 3407/6149 (55%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=6
+Train Epoch: 7 [0/1020 (0%)]	Loss: 2.297298
+Train Epoch: 7 [640/1020 (62%)]	Loss: 2.296525
+
+Test set: Average loss: 2.2334, Accuracy: 3846/6149 (63%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=7
+Train Epoch: 8 [0/1020 (0%)]	Loss: 1.802887
+Train Epoch: 8 [640/1020 (62%)]	Loss: 2.085779
+
+Test set: Average loss: 1.9501, Accuracy: 4059/6149 (66%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=8
+Train Epoch: 9 [0/1020 (0%)]	Loss: 1.776591
+Train Epoch: 9 [640/1020 (62%)]	Loss: 1.797121
+
+Test set: Average loss: 1.7816, Accuracy: 4306/6149 (70%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=9
+Train Epoch: 10 [0/1020 (0%)]	Loss: 1.455061
+Train Epoch: 10 [640/1020 (62%)]	Loss: 1.593895
+
+Test set: Average loss: 1.5957, Accuracy: 4485/6149 (73%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=10
+Train Epoch: 11 [0/1020 (0%)]	Loss: 1.407789
+Train Epoch: 11 [640/1020 (62%)]	Loss: 1.469247
+
+Test set: Average loss: 1.4748, Accuracy: 4552/6149 (74%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=11
+Train Epoch: 12 [0/1020 (0%)]	Loss: 1.435564
+Train Epoch: 12 [640/1020 (62%)]	Loss: 1.359671
+
+Test set: Average loss: 1.3606, Accuracy: 4648/6149 (76%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=12
+Train Epoch: 13 [0/1020 (0%)]	Loss: 1.086779
+Train Epoch: 13 [640/1020 (62%)]	Loss: 1.137057
+
+Test set: Average loss: 1.2872, Accuracy: 4718/6149 (77%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=13
+Train Epoch: 14 [0/1020 (0%)]	Loss: 1.146358
+Train Epoch: 14 [640/1020 (62%)]	Loss: 0.879660
+
+Test set: Average loss: 1.1973, Accuracy: 4816/6149 (78%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=14
+Train Epoch: 15 [0/1020 (0%)]	Loss: 1.026932
+Train Epoch: 15 [640/1020 (62%)]	Loss: 1.115331
+
+Test set: Average loss: 1.1257, Accuracy: 4866/6149 (79%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=15
+Train Epoch: 16 [0/1020 (0%)]	Loss: 0.930332
+Train Epoch: 16 [640/1020 (62%)]	Loss: 0.796349
+
+Test set: Average loss: 1.0661, Accuracy: 4915/6149 (80%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=16
+Train Epoch: 17 [0/1020 (0%)]	Loss: 0.913194
+Train Epoch: 17 [640/1020 (62%)]	Loss: 0.932905
+
+Test set: Average loss: 1.0374, Accuracy: 4977/6149 (81%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=17
+Train Epoch: 18 [0/1020 (0%)]	Loss: 0.896911
+Train Epoch: 18 [640/1020 (62%)]	Loss: 0.814990
+
+Test set: Average loss: 0.9845, Accuracy: 5020/6149 (82%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=18
+Train Epoch: 19 [0/1020 (0%)]	Loss: 0.656586
+Train Epoch: 19 [640/1020 (62%)]	Loss: 0.814881
+
+Test set: Average loss: 0.9556, Accuracy: 5032/6149 (82%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=19
+Train Epoch: 20 [0/1020 (0%)]	Loss: 0.743261
+Train Epoch: 20 [640/1020 (62%)]	Loss: 0.676328
+
+Test set: Average loss: 0.9016, Accuracy: 5111/6149 (83%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=20
+Train Epoch: 21 [0/1020 (0%)]	Loss: 0.685860
+Train Epoch: 21 [640/1020 (62%)]	Loss: 0.518428
+
+Test set: Average loss: 0.8989, Accuracy: 5085/6149 (83%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=21
+Train Epoch: 22 [0/1020 (0%)]	Loss: 0.768583
+Train Epoch: 22 [640/1020 (62%)]	Loss: 0.590464
+
+Test set: Average loss: 0.8623, Accuracy: 5110/6149 (83%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=22
+Train Epoch: 23 [0/1020 (0%)]	Loss: 0.616120
+Train Epoch: 23 [640/1020 (62%)]	Loss: 0.504771
+
+Test set: Average loss: 0.8500, Accuracy: 5120/6149 (83%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=23
+Train Epoch: 24 [0/1020 (0%)]	Loss: 0.362085
+Train Epoch: 24 [640/1020 (62%)]	Loss: 0.487691
+
+Test set: Average loss: 0.8268, Accuracy: 5146/6149 (84%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=24
+Train Epoch: 25 [0/1020 (0%)]	Loss: 0.577815
+Train Epoch: 25 [640/1020 (62%)]	Loss: 0.685765
+
+Test set: Average loss: 0.8101, Accuracy: 5180/6149 (84%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=25
+Train Epoch: 26 [0/1020 (0%)]	Loss: 0.551681
+Train Epoch: 26 [640/1020 (62%)]	Loss: 0.517010
+
+Test set: Average loss: 0.7876, Accuracy: 5202/6149 (85%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=26
+Train Epoch: 27 [0/1020 (0%)]	Loss: 0.441923
+Train Epoch: 27 [640/1020 (62%)]	Loss: 0.784803
+
+Test set: Average loss: 0.7884, Accuracy: 5200/6149 (85%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=27
+Train Epoch: 28 [0/1020 (0%)]	Loss: 0.662738
+Train Epoch: 28 [640/1020 (62%)]	Loss: 0.399983
+
+Test set: Average loss: 0.7771, Accuracy: 5209/6149 (85%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=28
+Train Epoch: 29 [0/1020 (0%)]	Loss: 0.399150
+Train Epoch: 29 [640/1020 (62%)]	Loss: 0.536091
+
+Test set: Average loss: 0.7643, Accuracy: 5215/6149 (85%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=29
+Train Epoch: 30 [0/1020 (0%)]	Loss: 0.504833
+Train Epoch: 30 [640/1020 (62%)]	Loss: 0.504104
+
+Test set: Average loss: 0.7524, Accuracy: 5227/6149 (85%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=30
+Train Epoch: 31 [0/1020 (0%)]	Loss: 0.511945
+Train Epoch: 31 [640/1020 (62%)]	Loss: 0.521460
+
+Test set: Average loss: 0.7423, Accuracy: 5245/6149 (85%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=31
+Train Epoch: 32 [0/1020 (0%)]	Loss: 0.351170
+Train Epoch: 32 [640/1020 (62%)]	Loss: 0.426633
+
+Test set: Average loss: 0.7366, Accuracy: 5252/6149 (85%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=32
+Train Epoch: 33 [0/1020 (0%)]	Loss: 0.502373
+Train Epoch: 33 [640/1020 (62%)]	Loss: 0.497837
+
+Test set: Average loss: 0.7359, Accuracy: 5258/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=33
+Train Epoch: 34 [0/1020 (0%)]	Loss: 0.435241
+Train Epoch: 34 [640/1020 (62%)]	Loss: 0.331959
+
+Test set: Average loss: 0.7346, Accuracy: 5259/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=34
+Train Epoch: 35 [0/1020 (0%)]	Loss: 0.335620
+Train Epoch: 35 [640/1020 (62%)]	Loss: 0.371362
+
+Test set: Average loss: 0.7228, Accuracy: 5270/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=35
+Train Epoch: 36 [0/1020 (0%)]	Loss: 0.415707
+Train Epoch: 36 [640/1020 (62%)]	Loss: 0.502851
+
+Test set: Average loss: 0.7230, Accuracy: 5275/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=36
+Train Epoch: 37 [0/1020 (0%)]	Loss: 0.519431
+Train Epoch: 37 [640/1020 (62%)]	Loss: 0.391156
+
+Test set: Average loss: 0.7194, Accuracy: 5281/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=37
+Train Epoch: 38 [0/1020 (0%)]	Loss: 0.453249
+Train Epoch: 38 [640/1020 (62%)]	Loss: 0.350092
+
+Test set: Average loss: 0.7123, Accuracy: 5299/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=38
+Train Epoch: 39 [0/1020 (0%)]	Loss: 0.314340
+Train Epoch: 39 [640/1020 (62%)]	Loss: 0.440132
+
+Test set: Average loss: 0.7115, Accuracy: 5290/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=39
+Train Epoch: 40 [0/1020 (0%)]	Loss: 0.384359
+Train Epoch: 40 [640/1020 (62%)]	Loss: 0.373455
+
+Test set: Average loss: 0.7085, Accuracy: 5297/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=40
+Train Epoch: 41 [0/1020 (0%)]	Loss: 0.508412
+Train Epoch: 41 [640/1020 (62%)]	Loss: 0.400403
+
+Test set: Average loss: 0.7070, Accuracy: 5299/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=41
+Train Epoch: 42 [0/1020 (0%)]	Loss: 0.351352
+Train Epoch: 42 [640/1020 (62%)]	Loss: 0.432832
+
+Test set: Average loss: 0.7050, Accuracy: 5300/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=42
+Train Epoch: 43 [0/1020 (0%)]	Loss: 0.335705
+Train Epoch: 43 [640/1020 (62%)]	Loss: 0.266470
+
+Test set: Average loss: 0.7003, Accuracy: 5304/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=43
+Train Epoch: 44 [0/1020 (0%)]	Loss: 0.459543
+Train Epoch: 44 [640/1020 (62%)]	Loss: 0.322811
+
+Test set: Average loss: 0.7000, Accuracy: 5299/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=44
+Train Epoch: 45 [0/1020 (0%)]	Loss: 0.469773
+Train Epoch: 45 [640/1020 (62%)]	Loss: 0.305306
+
+Test set: Average loss: 0.7034, Accuracy: 5295/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=45
+Train Epoch: 46 [0/1020 (0%)]	Loss: 0.369451
+Train Epoch: 46 [640/1020 (62%)]	Loss: 0.406859
+
+Test set: Average loss: 0.7011, Accuracy: 5299/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=46
+Train Epoch: 47 [0/1020 (0%)]	Loss: 0.341147
+Train Epoch: 47 [640/1020 (62%)]	Loss: 0.377634
+
+Test set: Average loss: 0.6991, Accuracy: 5297/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=47
+Train Epoch: 48 [0/1020 (0%)]	Loss: 0.521131
+Train Epoch: 48 [640/1020 (62%)]	Loss: 0.283438
+
+Test set: Average loss: 0.6966, Accuracy: 5300/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=48
+Train Epoch: 49 [0/1020 (0%)]	Loss: 0.338387
+Train Epoch: 49 [640/1020 (62%)]	Loss: 0.411721
+
+Test set: Average loss: 0.6985, Accuracy: 5310/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=49
+Train Epoch: 50 [0/1020 (0%)]	Loss: 0.328998
+Train Epoch: 50 [640/1020 (62%)]	Loss: 0.389391
+
+Test set: Average loss: 0.7032, Accuracy: 5299/6149 (86%)
+
+CHECKPOINT_SAVE model=perforated-ai/resnet-18-perforated-cascor epoch=50
+
+===== Final Comparison =====
+ epoch   tv_score   tv_delta  pai_score  pai_delta
+     1       2.20        N/A       3.64        N/A
+     2       6.05      +3.85      10.90      +7.25
+     3      15.08      +9.03      22.44     +11.55
+     4      27.31     +12.23      37.50     +15.06
+     5      36.82      +9.51      47.31      +9.81
+     6      44.25      +7.43      55.41      +8.10
+     7      49.78      +5.53      62.55      +7.14
+     8      54.61      +4.83      66.01      +3.46
+     9      59.81      +5.20      70.03      +4.02
+    10      61.81      +2.00      72.94      +2.91
+    11      64.99      +3.17      74.03      +1.09
+    12      67.15      +2.16      75.59      +1.56
+    13      69.07      +1.92      76.73      +1.14
+    14      70.53      +1.46      78.32      +1.59
+    15      72.19      +1.66      79.13      +0.81
+    16      73.43      +1.24      79.93      +0.80
+    17      74.16      +0.73      80.94      +1.01
+    18      75.31      +1.15      81.64      +0.70
+    19      76.60      +1.28      81.83      +0.20
+    20      77.23      +0.63      83.12      +1.28
+    21      77.69      +0.46      82.70      -0.42
+    22      78.34      +0.65      83.10      +0.41
+    23      78.99      +0.65      83.27      +0.16
+    24      79.43      +0.44      83.69      +0.42
+    25      79.62      +0.20      84.24      +0.55
+    26      79.83      +0.21      84.60      +0.36
+    27      80.14      +0.31      84.57      -0.03
+    28      80.57      +0.42      84.71      +0.15
+    29      80.96      +0.39      84.81      +0.10
+    30      81.07      +0.11      85.01      +0.20
+    31      81.56      +0.49      85.30      +0.29
+    32      81.82      +0.26      85.41      +0.11
+    33      81.82      +0.00      85.51      +0.10
+    34      81.98      +0.16      85.53      +0.02
+    35      82.05      +0.07      85.70      +0.18
+    36      82.00      -0.05      85.79      +0.08
+    37      82.34      +0.34      85.88      +0.10
+    38      82.34      +0.00      86.18      +0.29
+    39      82.45      +0.11      86.03      -0.15
+    40      82.31      -0.15      86.14      +0.11
+    41      82.48      +0.18      86.18      +0.03
+    42      82.24      -0.24      86.19      +0.02
+    43      82.48      +0.24      86.26      +0.07
+    44      82.29      -0.20      86.18      -0.08
+    45      82.45      +0.16      86.11      -0.07
+    46      82.37      -0.08      86.18      +0.07
+    47      82.50      +0.13      86.14      -0.03
+    48      82.40      -0.10      86.19      +0.05
+    49      82.58      +0.18      86.36      +0.16
+    50      82.50      -0.08      86.18      -0.18
